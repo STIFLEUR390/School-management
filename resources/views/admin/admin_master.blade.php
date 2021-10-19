@@ -39,20 +39,17 @@
 </div>
 <!-- Page Content overlay -->
 
-
+@include('sweetalert::alert')
 <!-- Vendor JS -->
 <script src="{{ asset('backend/js/vendors.min.js') }}"></script>
 <script src="{{ asset('backend/js/pages/chat-popup.js') }}"></script>
 <script src="{{ asset('assets/icons/feather-icons/feather.min.js') }}"></script>
 
 <script src="{{ asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
-<script src="{{ asset('assets/vendor_components/moment/min/moment.min.js') }}"></script>
-<script src="{{ asset('assets/vendor_components/fullcalendar/fullcalendar.js') }}"></script>
 
 <!-- EduAdmin App -->
 <script src="{{ asset('backend/js/template.js') }}"></script>
-<script src="{{ asset('backend/js/pages/dashboard.js') }}"></script>
-<script src="{{ asset('backend/js/pages/calendar.js') }}"></script>
+<script src="{{ asset('backend/js/pages/dashboard2.js') }}"></script>
 
 </body>
 </html>
