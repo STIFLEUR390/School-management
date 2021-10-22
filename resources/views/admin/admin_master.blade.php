@@ -40,6 +40,8 @@
 <!-- Page Content overlay -->
 
 @include('sweetalert::alert')
+{{--@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])--}}
+
 <!-- Vendor JS -->
 <script src="{{ asset('backend/js/vendors.min.js') }}"></script>
 <script src="{{ asset('backend/js/pages/chat-popup.js') }}"></script>
@@ -47,6 +49,10 @@
 
 <script src="{{ asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
 
+<script src="{{ asset('assets/vendor_components/datatable/datatables.min.js') }}"></script>
+<script src="{{ asset('backend/js/pages/data-table.js') }}"></script>
+
+@yield('scripts')
 <!-- EduAdmin App -->
 <script src="{{ asset('backend/js/template.js') }}"></script>
 <script src="{{ asset('backend/js/pages/dashboard2.js') }}"></script>

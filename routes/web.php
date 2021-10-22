@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // return view('dashboard');
     return view('admin.index');
 })->name('dashboard');
+
+//User Management All Routes
+Route::prefix('users')->group(function () {
+    Route::name('user.view')->get("/view", [UserController::class, 'userView']); //Voir tous les utilisateur
+    Route::name('user.add')->get('/add', [UserController::class, 'userAdd']); //Ajouter un utilisateur (vue)
+    Route::name('user.store')->post('/store', [UserController::class, 'userStore']);
+});
