@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\Setup\StudentClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,11 +44,19 @@ Route::middleware('auth')->group(function () {
         Route::name('profile.edit')->get('/edit', [ProfileController::class, 'profileEdit']); // vue page d'edition du profile
         Route::name('profile.store')->post('/store', [ProfileController::class, 'profileStore']); //Enregistre le profile apres modification
         Route::name('password.view')->get('/password/view', [ProfileController::class, 'passwordView']); // vue de modification du mot de passe
-        Route::name('password.update')->post('/password/update', [ProfileController::class, 'passwordUpdate']);
+        Route::name('password.update')->post('/password/update', [ProfileController::class, 'passwordUpdate']); // mettre a jour le mot de passe
     });
 
     // Setup management
     Route::prefix('setups')->group(function () {
-        //Route::name('student')
+        // Student Class Routes
+        Route::prefix('student/class')->group(function () {
+            Route::name('student.class.view')->get('/view', [StudentClassController::class, 'ViewClassStudent']); // Affiche les diferentes classe
+            Route::name('student.class.add')->get('/add', [StudentClassController::class, 'ViewClassAdd']); // vue pour ajouter une classe
+            Route::name('student.class.store')->post('/store', [StudentClassController::class, 'studentClassStore']); // Crée une nouvelle classe
+            Route::name('student.class.edit')->get('/edit/{id}', [StudentClassController::class, 'studentClassEdit']); // Vue mise a jour nom d'une classe
+            Route::name('student.class.update')->put('/update/{id}', [StudentClassController::class, 'studentClassUpdate']); //Mise a jour de la classe d'étudiant
+            Route::name('student.class.delete')->get('/delete/{id}', [StudentClassController::class, 'studentClassdelete']);
+        });
     });
 });

@@ -43,13 +43,13 @@ return [
     ],
     "Setup Management" => [
         "role" => "user",
-        "icon" => "fa fa-angle-right pull-right",
+        "icon" => "fa fa-cogs",
         "isHeader" => false,
         "children" => [
             [
-                "name" => "Classe d'étudiant",
+                "name" => "Student Class",
                 "role" => "user",
-                "route" => "profile.view"
+                "route" => "student.class.view",
             ],
             /*[
                 "name" => "Change Password",
