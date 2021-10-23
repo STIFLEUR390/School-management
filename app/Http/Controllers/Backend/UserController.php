@@ -33,7 +33,11 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+            $notification = array(
+                'message' => __($validator->messages()->all()[0]),
+                'alert-type' => 'error'
+            );
+            return back()->with($notification)->withInput();
         }
 
         $data = new User();

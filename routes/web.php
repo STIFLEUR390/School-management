@@ -18,7 +18,7 @@ use App\Http\Controllers\Backend\UserController;
 Route::get('/', function () {
     // return view('welcome');
     return redirect()->route('login');
-});
+})->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // return view('dashboard');
@@ -41,6 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::prefix('profile')->group(function () {
         Route::name('profile.view')->get('/view', [ProfileController::class, 'profileView']); //Afficher le profil utilisateur
         Route::name('profile.edit')->get('/edit', [ProfileController::class, 'profileEdit']); // vue page d'edition du profile
-        Route::name('profile.store')->post('/store', [ProfileController::class, 'profileStore']);
+        Route::name('profile.store')->post('/store', [ProfileController::class, 'profileStore']); //Enregistre le profile apres modification
+        Route::name('password.view')->get('/password/view', [ProfileController::class, 'passwordView']); // vue de modification du mot de passe
+        Route::name('password.update')->post('/password/update', [ProfileController::class, 'passwordUpdate']);
+    });
+
+    // Setup management
+    Route::prefix('setups')->group(function () {
+        //Route::name('student')
     });
 });

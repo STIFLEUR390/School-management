@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
@@ -52,5 +54,37 @@ class ProfileController extends Controller
         $file->move(public_path('upload/user_images'),$filename);
 
         return $filename;
+    }
+
+    public function passwordView()
+    {
+        return view('backend.user.edit_password');
+    }
+
+    public function passwordUpdate(Request $request)
+    {
+        $validator = \Validator::make($request->all(), [
+            'oldpassword' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            $notification = array(
+                'message' => __($validator->messages()->all()[0]),
+                'alert-type' => 'error'
+            );
+            return back()->with($notification)->withInput();
+        }
+
+        $hashedPassword = Auth::user()->password;
+        if (Hash::check($request->oldpassword,$hashedPassword)) {
+            $user = User::find(Auth::id());
+            $user->password = Hash::make($request->password);
+            $user->save();
+            Auth::logout();
+            return redirect()->route('login');
+        }else{
+            return redirect()->back();
+        }
     }
 }

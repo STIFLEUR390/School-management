@@ -17,7 +17,43 @@
     <!-- Style-->
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/skin_color.css') }}">
+    <style>
+        .colored-toast.swal2-icon-success {
+            background-color: #04A08B !important;
+        }
 
+        .colored-toast.swal2-icon-error {
+            background-color: #FF562F !important;
+        }
+
+        .colored-toast.swal2-icon-warning {
+            background-color: #FF9920 !important;
+        }
+
+        .colored-toast.swal2-icon-info {
+            background-color: #00BAFF !important;
+        }
+
+        .colored-toast.swal2-icon-question {
+            background-color: #87ADBD !important;
+        }
+
+        .colored-toast .swal2-title {
+            color: #D7E5FF;
+        }
+
+        .colored-toast .swal2-close {
+            color: #D7E5FF;
+        }
+
+        .colored-toast .swal2-html-container {
+            color: #D7E5FF;
+        }
+
+        .swal2-loader, .swal2-x-mark{
+            background-color: #D7E5FF;
+        }
+    </style>
 {{--    <link rel="stylesheet" type="text/css" href="{{ asset('js/toastr/toastr.css') }}" />--}}
 
 </head>
