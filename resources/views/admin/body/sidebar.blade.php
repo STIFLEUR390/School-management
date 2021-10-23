@@ -26,6 +26,19 @@
                             <li><a href="{{ route('user.add') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>@lang('Add User')</a></li>
                         </ul>
                     </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
+                            <span>@lang('Manage Profile')</span>
+                            <span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ route('profile.view') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>@lang('Your Profile')</a></li>
+                            <li><a href="contact_app.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>@lang('Change Password')</a></li>
+                        </ul>
+                    </li>
                     <li class="header">Dashboard & Apps</li>
                     <li class="treeview">
                         <a href="#">

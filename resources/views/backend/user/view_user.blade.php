@@ -54,10 +54,10 @@
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td width="10%">
-                                                        <a href="javascript:void(0)" class="text-info mr-10" data-toggle="tooltip" data-original-title="@lang('Edit')">
+                                                        <a href="{{ route('user.edit', $user->id ) }}" class="text-info mr-10" data-toggle="tooltip" data-original-title="@lang('Edit')">
                                                             <i class="ti-marker-alt"></i>
                                                         </a>
-                                                        <a href="javascript:void(0)" class="text-danger" data-original-title="@lang('Delete')" data-toggle="tooltip">
+                                                        <a href="{{ route('user.delete', $user->id) }}"  class="text-danger delete" data-original-title="@lang('Delete')" data-toggle="tooltip">
                                                             <i class="ti-trash"></i>
                                                         </a>
                                                     </td>
