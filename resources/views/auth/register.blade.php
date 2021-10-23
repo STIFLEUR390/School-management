@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-    <title>Easy School Managment System - Registration </title>
+    <title>{{ env('APP_NAME') }} - Registration </title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">

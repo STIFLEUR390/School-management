@@ -8,9 +8,10 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-    <title>Easy School Managment System - Dashboard</title>
+    <title>{{ env('APP_NAME') }} - Dashboard</title>
 
     <!-- Vendors Style-->
+    @yield('styles')
     <link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
 
     <!-- Style-->
@@ -76,7 +77,7 @@
     switch(type){
         case 'info':
             $.toast({
-                heading: "{{ __('info') }}",
+                heading: "{{ env('APP_NAME') }}",
                 text: " {{ Session::get('message') }} ",
                 position: 'top-right',
                 loaderBg: '#ff6849',
@@ -88,7 +89,7 @@
 
         case 'success':
             $.toast({
-                heading: "{{ __('success') }}",
+                heading: "{{ env('APP_NAME') }}",
                 text: " {{ Session::get('message') }} ",
                 position: 'top-right',
                 loaderBg: '#ff6849',
@@ -100,7 +101,7 @@
 
         case 'warning':
             $.toast({
-                heading: "{{ __('warning') }}",
+                heading: "{{ env('APP_NAME') }}",
                 text: " {{ Session::get('message') }} ",
                 position: 'top-right',
                 loaderBg: '#ff6849',
@@ -112,7 +113,7 @@
 
         case 'error':
             $.toast({
-                heading: "{{ __('error') }}",
+                heading: "{{ env('APP_NAME') }}",
                 text: " {{ Session::get('message') }} ",
                 position: 'top-right',
                 loaderBg: '#ff6849',

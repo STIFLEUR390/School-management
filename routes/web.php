@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     //Gerer le profile utilisateur
     Route::prefix('profile')->group(function () {
         Route::name('profile.view')->get('/view', [ProfileController::class, 'profileView']); //Afficher le profil utilisateur
-        Route::name('profile.edit')->get('/edit', [ProfileController::class, 'profileEdit']); // Editer profile
+        Route::name('profile.edit')->get('/edit', [ProfileController::class, 'profileEdit']); // vue page d'edition du profile
+        Route::name('profile.store')->post('/store', [ProfileController::class, 'profileStore']);
     });
 });

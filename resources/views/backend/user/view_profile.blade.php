@@ -64,7 +64,7 @@
                                     <div class="col-sm-4">
                                         <div class="description-block">
                                             <h5 class="description-header">@lang('Gender')</h5>
-                                            <span class="description-text">{{ $user->gender }}</span>
+                                            <span class="description-text">@lang($user->gender)</span>
                                         </div>
                                         <!-- /.description-block -->
                                     </div>
