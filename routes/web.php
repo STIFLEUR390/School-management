@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
+use App\Http\Controllers\Backend\Setup\StudentGroupController;
+use App\Http\Controllers\Backend\Setup\StudentYearController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +58,15 @@ Route::middleware('auth')->group(function () {
             Route::name('student.class.store')->post('/store', [StudentClassController::class, 'studentClassStore']); // Crée une nouvelle classe
             Route::name('student.class.edit')->get('/edit/{id}', [StudentClassController::class, 'studentClassEdit']); // Vue mise a jour nom d'une classe
             Route::name('student.class.update')->put('/update/{id}', [StudentClassController::class, 'studentClassUpdate']); //Mise a jour de la classe d'étudiant
-            Route::name('student.class.delete')->get('/delete/{id}', [StudentClassController::class, 'studentClassdelete']);
+            Route::name('student.class.delete')->get('/delete/{id}', [StudentClassController::class, 'studentClassdelete']); //Supprimer une classe
         });
+
+        //Student year routes
+        Route::name('student')->resource('/student/year', StudentYearController::class)->except('show', 'destroy');
+        Route::name('student.year.delete')->get('/student/year/delete/{id}', [StudentYearController::class, 'destroy']);
+
+        //Student group route
+        Route::name('student')->resource('/student/group', StudentGroupController::class)->except('show', 'destroy');
+        Route::name('student.group.delete')->get('/student/group/delete/{id}', [StudentGroupController::class, 'destroy']);
     });
 });

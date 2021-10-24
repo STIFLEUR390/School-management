@@ -51,11 +51,16 @@ return [
                 "role" => "user",
                 "route" => "student.class.view",
             ],
-            /*[
-                "name" => "Change Password",
+            [
+                "name" => "Student Year",
                 "role" => "user",
-                "route" => "password.view"
-            ],*/
+                "route" => "student.year.index"
+            ],
+            [
+                "name" => "Student Group",
+                "role" => "user",
+                "route" => "student.group.index"
+            ],
         ],
     ],
 ];
