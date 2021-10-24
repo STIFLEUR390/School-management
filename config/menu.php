@@ -66,6 +66,11 @@ return [
                 "role" => "user",
                 "route" => "student.shift.index"
             ],
+            [
+                "name" => "Fee Category",
+                "role" => "user",
+                "route" => "fee.category.index"
+            ],
         ],
     ],
 ];

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Backend\Setup;
 
 use App\Http\Controllers\Controller;
-use App\Models\StudentShift;
+use App\Models\FeeCategory;
 use Illuminate\Http\Request;
 
-class StudentShiftController extends Controller
+class FeeCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class StudentShiftController extends Controller
      */
     public function index()
     {
-        $studentShifts = StudentShift::all();
+        $feeCategories = FeeCategory::all();
 
-        return view('backend.setup.student_shift.view_shift', compact('studentShifts'));
+        return view('backend.setup.fee_category.view_fee_category', compact('feeCategories'));
     }
 
     /**
@@ -27,7 +27,7 @@ class StudentShiftController extends Controller
      */
     public function create()
     {
-        return view('backend.setup.student_shift.add_shift');
+        return view('backend.setup.fee_category.add_fee_category');
     }
 
     /**
@@ -39,7 +39,7 @@ class StudentShiftController extends Controller
     public function store(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'name' => 'required|min:3|unique:student_shifts,name',
+            'name' => 'required|min:3|unique:fee_categories,name',
         ]);
 
         if ($validator->fails()) {
@@ -50,16 +50,16 @@ class StudentShiftController extends Controller
             return back()->with($notification)->withInput();
         }
 
-        $data = new StudentShift();
-        $data->name = $request->name;
-        $data->save();
+        $feeCategory = new FeeCategory();
+        $feeCategory->name = $request->name;
+        $feeCategory->save();
 
         $notification = array(
-            'message' => __('Student Shift Inserted Successfully'),
+            'message' => __('Fee Category Inserted Successfully'),
             'alert-type' => 'success'
         );
 
-        return redirect()->route('student.shift.index')->with($notification);
+        return redirect()->route('fee.category.index')->with($notification);
     }
 
     /**
@@ -81,9 +81,9 @@ class StudentShiftController extends Controller
      */
     public function edit($id)
     {
-        $studentShift = StudentShift::findOrFail($id);
+        $feeCategory = FeeCategory::findOrfail($id);
 
-        return view('backend.setup.student_shift.edit_shift', compact('studentShift'));
+        return view('backend.setup.fee_category.edit_fee_category', compact('feeCategory'));
     }
 
     /**
@@ -95,10 +95,10 @@ class StudentShiftController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $studentShift = StudentShift::findOrFail($id);
+        $feeCategory = FeeCategory::findOrfail($id);
 
         $validator = \Validator::make($request->all(), [
-            'name' => 'required|min:3|unique:student_shifts,name,'.$studentShift->id,
+            'name' => 'required|min:3|unique:fee_categories,name,'.$feeCategory->id,
         ]);
 
         if ($validator->fails()) {
@@ -109,15 +109,15 @@ class StudentShiftController extends Controller
             return back()->with($notification)->withInput();
         }
 
-        $studentShift->name = $request->name;
-        $studentShift->save();
+        $feeCategory->name = $request->name;
+        $feeCategory->save();
 
         $notification = array(
-            'message' => __('Student Shift Updated Successfully'),
+            'message' => __('Fee Category Updated Successfully'),
             'alert-type' => 'success'
         );
 
-        return redirect()->route('student.shift.index')->with($notification);
+        return redirect()->route('fee.category.index')->with($notification);
     }
 
     /**
@@ -128,14 +128,14 @@ class StudentShiftController extends Controller
      */
     public function destroy($id)
     {
-        $studentShift = StudentShift::findOrFail($id);
-        $studentShift->delete();
+        $feeCategory = FeeCategory::findOrfail($id);
+        $feeCategory->delete();
 
         $notification = array(
-            'message' => __('Student Shift Deleted Successfully'),
+            'message' => __('Fee Category Deleted Successfully'),
             'alert-type' => 'info'
         );
 
-        return redirect()->route('student.shift.index')->with($notification);
+        return redirect()->route('fee.category.index')->with($notification);
     }
 }

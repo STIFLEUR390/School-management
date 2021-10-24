@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\Setup\FeeCategoryController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
@@ -73,6 +74,10 @@ Route::middleware('auth')->group(function () {
         // Student shift route
         Route::name('student')->resource('/student/shift', StudentShiftController::class)->except('show', 'destroy');
         Route::name('student.shift.delete')->get('/student/shift/delete/{id}', [StudentShiftController::class, 'destroy']);
+
+        //Fee Category list
+        Route::name('fee')->resource('/fee/category', FeeCategoryController::class)->except('show', 'destroy');
+        Route::name('fee.category.delete')->get('/fee/category/delete/{id}', [FeeCategoryController::class, 'destroy']);
 
     });
 });
