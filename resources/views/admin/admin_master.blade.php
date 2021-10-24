@@ -100,7 +100,49 @@
 <!-- Notification de l'application -->
 
 <script src="{{ asset('assets/vendor_components/sweetalert/sweetalert.min.js') }}"></script>
-<script src="{{ asset('assets/vendor_components/sweetalert/jquery.sweet-alert.custom.js') }}"></script>
+<script>
+
+    !function($) {
+        "use strict";
+
+        var SweetAlert = function() {};
+
+        //examples
+        SweetAlert.prototype.init = function() {
+
+            //Parameter
+            $('.delete').click(function(e){
+                e.preventDefault();
+                var link = $(this).attr("href");
+                swal({
+                    title: "{{ __('Are you sure?') }}",
+                    text: "{{ __('Delete This Data?') }}",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: "{{ __('Yes, delete it!') }}",
+                    cancelButtonText: "{{ __('No, cancel it!') }}",
+                    closeOnConfirm: false,
+                }, function(){
+                    window.location.href = link
+                    swal("Deleted!", "Your file has been deleted.", "success");
+                });
+            });
+
+
+        },
+            //init
+            $.SweetAlert = new SweetAlert, $.SweetAlert.Constructor = SweetAlert
+    }(window.jQuery),
+
+//initializing
+        function($) {
+            "use strict";
+            $.SweetAlert.init()
+        }(window.jQuery);
+
+</script>
 
 
 

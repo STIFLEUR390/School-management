@@ -61,6 +61,11 @@ return [
                 "role" => "user",
                 "route" => "student.group.index"
             ],
+            [
+                "name" => "Student Shift",
+                "role" => "user",
+                "route" => "student.shift.index"
+            ],
         ],
     ],
 ];

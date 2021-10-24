@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
+use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 
 /*
@@ -68,5 +69,10 @@ Route::middleware('auth')->group(function () {
         //Student group route
         Route::name('student')->resource('/student/group', StudentGroupController::class)->except('show', 'destroy');
         Route::name('student.group.delete')->get('/student/group/delete/{id}', [StudentGroupController::class, 'destroy']);
+
+        // Student shift route
+        Route::name('student')->resource('/student/shift', StudentShiftController::class)->except('show', 'destroy');
+        Route::name('student.shift.delete')->get('/student/shift/delete/{id}', [StudentShiftController::class, 'destroy']);
+
     });
 });

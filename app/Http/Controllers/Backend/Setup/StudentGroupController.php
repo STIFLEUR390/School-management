@@ -39,7 +39,7 @@ class StudentGroupController extends Controller
     public function store(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'name' => 'required|min:3|unique:student_years,name',
+            'name' => 'required|min:3|unique:student_groups,name',
         ]);
 
         if ($validator->fails()) {
@@ -98,7 +98,7 @@ class StudentGroupController extends Controller
         $studentGroup = StudentGroup::findOrFail($id);
 
         $validator = \Validator::make($request->all(), [
-            'name' => 'required|min:3|unique:student_classes,name,'.$studentGroup->id,
+            'name' => 'required|min:3|unique:student_groups,name,'.$studentGroup->id,
         ]);
 
         if ($validator->fails()) {

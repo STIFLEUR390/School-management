@@ -4,27 +4,26 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <div class="container-full">
-            <!-- Main content -->
+        <!-- Main content -->
             <section class="content">
 
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">@lang('Update Student Group')</h4>
+                        <h4 class="box-title">@lang('Add Student Shift')</h4>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form method="post" action="{{ route('student.group.update', $studentGroup->id) }}">
+                                <form method="post" action="{{ route('student.shift.store') }}">
                                     @csrf
-                                    @method('PUT')
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <h5>@lang('Student Group Name') <span class="text-danger">*</span></h5>
+                                                <h5>@lang('Student Shift Name') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" value="{{ old('name', $studentGroup->name) }}" name="name" class="form-control" required />
+                                                    <input type="text" value="{{ old('name') }}" name="name" class="form-control" required />
                                                 </div>
                                                 {{--                                                <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div>--}}
                                             </div>

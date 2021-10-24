@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Backend\Setup;
 
 use App\Http\Controllers\Controller;
-use App\Models\StudentYear;
+use App\Models\StudentShift;
 use Illuminate\Http\Request;
 
-class StudentYearController extends Controller
+class StudentShiftController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class StudentYearController extends Controller
      */
     public function index()
     {
-        $studentyears = StudentYear::all();
+        $studentShifts = StudentShift::all();
 
-        return view('backend.setup.student_year.view_year', compact('studentyears'));
+        return view('backend.setup.student_shift.view_shift', compact('studentShifts'));
     }
 
     /**
@@ -27,7 +27,7 @@ class StudentYearController extends Controller
      */
     public function create()
     {
-        return view('backend.setup.student_year.add_year');
+        return view('backend.setup.student_shift.add_shift');
     }
 
     /**
@@ -39,7 +39,7 @@ class StudentYearController extends Controller
     public function store(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'name' => 'required|min:3|unique:student_years,name',
+            'name' => 'required|min:3|unique:student_shifts,name',
         ]);
 
         if ($validator->fails()) {
@@ -50,16 +50,16 @@ class StudentYearController extends Controller
             return back()->with($notification)->withInput();
         }
 
-        $studentYear = new StudentYear();
-        $studentYear->name = $request->name;
-        $studentYear->save();
+        $data = new StudentShift();
+        $data->name = $request->name;
+        $data->save();
 
         $notification = array(
-            'message' => __('Student Year Inserted Successfully'),
+            'message' => 'Student Shift Inserted Successfully',
             'alert-type' => 'success'
         );
 
-        return redirect()->route('student.year.index')->with($notification);
+        return redirect()->route('student.shift.index')->with($notification);
     }
 
     /**
@@ -81,9 +81,9 @@ class StudentYearController extends Controller
      */
     public function edit($id)
     {
-        $studentYear = StudentYear::findOrFail($id);
+        $studentShift = StudentShift::findOrFail($id);
 
-        return view('backend.setup.student_year.edit_year', compact('studentYear'));
+        return view('backend.setup.student_shift.edit_shift', compact('studentShift'));
     }
 
     /**
@@ -95,10 +95,10 @@ class StudentYearController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $studentYear = StudentYear::findOrFail($id);
+        $studentShift = StudentShift::findOrFail($id);
 
         $validator = \Validator::make($request->all(), [
-            'name' => 'required|min:3|unique:student_years,name,'.$studentYear->id,
+            'name' => 'required|min:3|unique:student_shifts,name,'.$studentShift->id,
         ]);
 
         if ($validator->fails()) {
@@ -109,15 +109,15 @@ class StudentYearController extends Controller
             return back()->with($notification)->withInput();
         }
 
-        $studentYear->name = $request->name;
-        $studentYear->save();
+        $studentShift->name = $request->name;
+        $studentShift->save();
 
         $notification = array(
-            'message' => __('Student Year Updated Successfully'),
+            'message' => 'Student Shift Updated Successfully',
             'alert-type' => 'success'
         );
 
-        return redirect()->route('student.year.index')->with($notification);
+        return redirect()->route('student.shift.index')->with($notification);
     }
 
     /**
@@ -128,14 +128,14 @@ class StudentYearController extends Controller
      */
     public function destroy($id)
     {
-        $studentYear = StudentYear::findOrFail($id);
-        $studentYear->delete();
+        $studentShift = StudentShift::findOrFail($id);
+        $studentShift->delete();
 
         $notification = array(
-            'message' => __('Student Year Deleted Successfully'),
+            'message' => 'Student Shift Deleted Successfully',
             'alert-type' => 'info'
         );
 
-        return redirect()->route('student.year.index')->with($notification);
+        return redirect()->route('student.shift.index')->with($notification);
     }
 }
