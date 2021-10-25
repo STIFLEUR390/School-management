@@ -17,7 +17,7 @@ class FeeAmountController extends Controller
      */
     public function index()
     {
-        $feeCategoryAmounts = FeeCategoryAmount::all();
+        $feeCategoryAmounts = FeeCategoryAmount::select('fee_category_id')->groupBy('fee_category_id')->get();
 
         return view('backend.setup.fee_amount.view_fee_amount', compact('feeCategoryAmounts'));
     }
@@ -72,7 +72,9 @@ class FeeAmountController extends Controller
      */
     public function show($id)
     {
-        //
+        $feeCategoryAmounts = FeeCategoryAmount::where('fee_category_id', $id)->orderBy('class_id', 'asc')->get();
+
+        return view('backend.setup.fee_amount.details_fee_amount', compact('feeCategoryAmounts'));
     }
 
     /**
@@ -83,7 +85,11 @@ class FeeAmountController extends Controller
      */
     public function edit($id)
     {
-        //
+        $classes = StudentClass::all();
+        $feeCategories = FeeCategory::all();
+        $feeCategoryAmounts = FeeCategoryAmount::where('fee_category_id', $id)->orderBy('class_id', 'asc')->get();
+
+        return view('backend.setup.fee_amount.edit_fee_amount', compact('classes', 'feeCategories' ,'feeCategoryAmounts'));
     }
 
     /**
@@ -95,7 +101,32 @@ class FeeAmountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->class_id == null)
+        {
+            $notification = array(
+                'message' => __('Sorry You do not select any class amount'),
+                'alert-type' => 'error'
+            );
+
+            return redirect()->route('fee.amount.edit', $id)->with($notification);
+        } else {
+            $countClass = count($request->class_id);
+            FeeCategoryAmount::where('fee_category_id', $id)->delete();
+            for ($id=0; $i<$countClass; $i++){
+                $feeAmount = new FeeCategoryAmount();
+                $feeAmount->fee_category_id = $request->fee_category_id;
+                $feeAmount->class_id = $request->class_id[$i];
+                $feeAmount->amount = $request->amount[$i];
+                $feeAmount->save();
+            }
+        }
+
+        $notification = array(
+            'message' => __('Data Updated Successfully'),
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('fee.amount.index')->with($notification);
     }
 
     /**

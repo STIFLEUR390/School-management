@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-    <title>{{ env('APP_NAME') }} - Dashboard</title>
+    <title>{{ __(env('APP_NAME')) }} - Dashboard</title>
 
     <!-- Vendors Style-->
     @yield('styles')

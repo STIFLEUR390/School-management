@@ -11,38 +11,29 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">@lang('Student Fee Amount List')</h3>
+                                <h3 class="box-title">@lang('Fee Amount Details')</h3>
                                 <a href="{{ route('fee.amount.create') }}" style="float: right;" class="waves-effect waves-light btn btn-rounded btn-success mb-5">
                                     <i class="ti-plus"></i> @lang("Add Fee Amount")
                                 </a>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
+                                <h4><strong>@lang('Fee Category'): </strong>{{ $feeCategoryAmounts['0']->fee_category->name }}</h4>
                                 <div class="table-responsive">
                                     <table id="example1" class="table table-bordered table-striped">
-                                        <thead>
+                                        <thead class="thead-light">
                                         <tr>
                                             <th>@lang('SL')</th>
-                                            <th>@lang('Fee Category')</th>
-                                            <th>@lang('Action')</th>
+                                            <th>@lang('Class Name')</th>
+                                            <th>@lang('Amount')</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($feeCategoryAmounts as $key => $feeCategoryAmount)
                                             <tr>
                                                 <td >{{ $key + 1 }}</td>
-                                                <td>{{ $feeCategoryAmount->fee_category->name }}</td>
-                                                <td width="10%">
-                                                    <a href="{{ route('fee.amount.edit', $feeCategoryAmount->fee_category_id) }}" class="text-info mr-10" data-toggle="tooltip" data-original-title="@lang('Edit')">
-                                                        <i class="ti-marker-alt"></i>
-                                                    </a>
-                                                    <a href="{{ route('fee.amount.show', $feeCategoryAmount->fee_category_id) }}"  class="text-primary" data-original-title="@lang('Details')" data-toggle="tooltip">
-                                                        <i class="ti-eye"></i>
-                                                    </a>
-                                                    {{--<a href="{{ route('fee.amount.destroy', $feeCategoryAmount->fee_category_id) }}"  class="text-danger delete" data-original-title="@lang('Delete')" data-toggle="tooltip">
-                                                        <i class="ti-trash"></i>
-                                                    </a>--}}
-                                                </td>
+                                                <td>{{ $feeCategoryAmount->student_class->name }}</td>
+                                                <td width="10%">{{ $feeCategoryAmount->amount }}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>

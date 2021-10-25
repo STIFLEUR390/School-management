@@ -81,7 +81,7 @@ Route::middleware('auth')->group(function () {
         Route::name('fee.category.delete')->get('/fee/category/delete/{id}', [FeeCategoryController::class, 'destroy']);
 
         //Fee category Amount
-        Route::name('fee')->resource('/fee/amount', FeeAmountController::class)->except('show');
+        Route::name('fee')->resource('/fee/amount', FeeAmountController::class)->except('destroy');
 
     });
 });

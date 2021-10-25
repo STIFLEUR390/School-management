@@ -41,13 +41,6 @@
                                             </tr>
                                         @endforeach
                                         </tbody>
-                                        <tfoot>
-                                        <tr>
-                                            <th>@lang('SL')</th>
-                                            <th>@lang('Name')</th>
-                                            <th>@lang('Action')</th>
-                                        </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
