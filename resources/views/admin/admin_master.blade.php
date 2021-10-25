@@ -87,11 +87,10 @@
 <script src="{{ asset('backend/js/pages/chat-popup.js') }}"></script>
 <script src="{{ asset('assets/icons/feather-icons/feather.min.js') }}"></script>
 
-{{--<script src="{{ asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>--}}
+<script src="{{ asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
 
 <script src="{{ asset('assets/vendor_components/datatable/datatables.min.js') }}"></script>
 <script src="{{ asset('backend/js/pages/data-table.js') }}"></script>
-
 @yield('scripts')
 <!-- EduAdmin App -->
 <script src="{{ asset('backend/js/template.js') }}"></script>

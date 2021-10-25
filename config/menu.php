@@ -71,6 +71,11 @@ return [
                 "role" => "user",
                 "route" => "fee.category.index"
             ],
+            [
+                "name" => "Fee Category Amount",
+                "role" => "user",
+                "route" => "fee.amount.index"
+            ],
         ],
     ],
 ];
