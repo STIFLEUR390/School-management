@@ -76,6 +76,11 @@ return [
                 "role" => "user",
                 "route" => "fee.amount.index"
             ],
+            [
+                "name" => "Exam Type",
+                "role" => "user",
+                "route" => "exam.type.index"
+            ]
         ],
     ],
 ];

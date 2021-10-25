@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\FeeCategoryController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
@@ -82,6 +83,10 @@ Route::middleware('auth')->group(function () {
 
         //Fee category Amount
         Route::name('fee')->resource('/fee/amount', FeeAmountController::class)->except('destroy');
+
+        //Exam type route
+        Route::name('exam')->resource('/exam/type', ExamTypeController::class)->except('show', 'destroy');
+        Route::name('exam.type.destroy')->get('/exam/type/delete/{id}', [ExamTypeController::class, 'destroy']);
 
     });
 });
