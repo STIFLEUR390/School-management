@@ -80,7 +80,12 @@ return [
                 "name" => "Exam Type",
                 "role" => "user",
                 "route" => "exam.type.index"
-            ]
+            ],
+            [
+                "name" => "School Subject",
+                "role" => "user",
+                "route" => "school.subject.index"
+            ],
         ],
     ],
 ];

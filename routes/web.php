@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\Setup\FeeCategoryController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
+use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 
 /*
@@ -87,6 +88,10 @@ Route::middleware('auth')->group(function () {
         //Exam type route
         Route::name('exam')->resource('/exam/type', ExamTypeController::class)->except('show', 'destroy');
         Route::name('exam.type.destroy')->get('/exam/type/delete/{id}', [ExamTypeController::class, 'destroy']);
+
+        //School Subjet route
+        Route::name('school')->resource('/school/subject', SchoolSubjectController::class)->except('show', 'destroy');
+        Route::name('school.subject.destroy')->get('/school/subject/delete/{id}', [SchoolSubjectController::class, 'destroy']);
 
     });
 });
