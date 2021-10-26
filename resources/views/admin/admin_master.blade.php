@@ -154,7 +154,7 @@
     switch(type){
         case 'info':
             $.toast({
-                heading: "{{ env('APP_NAME') }}",
+                heading: "{{ __(env('APP_NAME')) }}",
                 text: " {{ Session::get('message') }} ",
                 position: 'top-right',
                 loaderBg: '#ff6849',
@@ -166,7 +166,7 @@
 
         case 'success':
             $.toast({
-                heading: "{{ env('APP_NAME') }}",
+                heading: "{{ __(env('APP_NAME')) }}",
                 text: " {{ Session::get('message') }} ",
                 position: 'top-right',
                 loaderBg: '#ff6849',
@@ -178,7 +178,7 @@
 
         case 'warning':
             $.toast({
-                heading: "{{ env('APP_NAME') }}",
+                heading: "{{ __(env('APP_NAME')) }}",
                 text: " {{ Session::get('message') }} ",
                 position: 'top-right',
                 loaderBg: '#ff6849',
@@ -190,7 +190,7 @@
 
         case 'error':
             $.toast({
-                heading: "{{ env('APP_NAME') }}",
+                heading: "{{ __(env('APP_NAME')) }}",
                 text: " {{ Session::get('message') }} ",
                 position: 'top-right',
                 loaderBg: '#ff6849',

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\FeeCategoryController;
@@ -93,5 +94,7 @@ Route::middleware('auth')->group(function () {
         Route::name('school')->resource('/school/subject', SchoolSubjectController::class)->except('show', 'destroy');
         Route::name('school.subject.destroy')->get('/school/subject/delete/{id}', [SchoolSubjectController::class, 'destroy']);
 
+        // Assign subject route
+        Route::name('assign')->resource('/assign/subject', AssignSubjectController::class)->except('destroy');
     });
 });

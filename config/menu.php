@@ -86,6 +86,11 @@ return [
                 "role" => "user",
                 "route" => "school.subject.index"
             ],
+            [
+                "name" => "Assign Subject",
+                "role" => "user",
+                "route" => "assign.subject.index"
+            ],
         ],
     ],
 ];
