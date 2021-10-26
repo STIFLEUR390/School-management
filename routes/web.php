@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
+use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\FeeCategoryController;
@@ -96,5 +97,10 @@ Route::middleware('auth')->group(function () {
 
         // Assign subject route
         Route::name('assign')->resource('/assign/subject', AssignSubjectController::class)->except('destroy');
+
+        //Designation route
+
+        Route::name('designation')->resource('designation', DesignationController::class)->except('show', 'destroy');
+        Route::name('designation.designation.destroy')->get('/designation/delete/{id}', [DesignationController::class, 'destroy']);
     });
 });

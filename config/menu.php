@@ -91,6 +91,11 @@ return [
                 "role" => "user",
                 "route" => "assign.subject.index"
             ],
+            [
+                "name" => "Designation",
+                "role" => "user",
+                "route" => "designation.designation.index"
+            ],
         ],
     ],
 ];
