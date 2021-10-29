@@ -12,7 +12,7 @@ class UserController extends Controller
     //
     public function userView()
     {
-        $users = User::all();
+        $users = User::where('usertype', 'Admin')->get();
         return view('backend.user.view_user', compact('users'));
     }
 

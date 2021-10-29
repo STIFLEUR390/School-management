@@ -24,6 +24,7 @@
                                                 <th>@lang('Role')</th>
                                                 <th>@lang('Name')</th>
                                                 <th>@lang('Email')</th>
+                                                <th>@lang('Code')</th>
                                                 <th>@lang('Action')</th>
                                             </tr>
                                         </thead>
@@ -34,6 +35,7 @@
                                                     <td>{{ $user->usertype }}</td>
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->email }}</td>
+                                                    <td>{{ $user->code }}</td>
                                                     <td width="10%">
                                                         <a href="{{ route('user.edit', $user->id ) }}" class="text-info mr-10" data-toggle="tooltip" data-original-title="@lang('Edit')">
                                                             <i class="ti-marker-alt"></i>

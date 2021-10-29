@@ -8,18 +8,18 @@ return [
         "isHeader" => false,
     ],
     "Manage User" => [
-        "role" => "user",
+        "role" => "admin",
         "icon" => "icon-Layout-4-blocks",
         "isHeader" => false,
         "children" => [
             [
                 "name" => "View User",
-                "role" => "user",
+                "role" => "admin",
                 "route" => "user.view"
             ],
             [
                 "name" => "Add User",
-                "role" => "user",
+                "role" => "admin",
                 "route" => "user.add"
             ],
         ],
@@ -43,7 +43,7 @@ return [
     ],
     "Setup Management" => [
         "role" => "user",
-        "icon" => "fa fa-cogs",
+        "icon" => "icon-Write",
         "isHeader" => false,
         "children" => [
             [
@@ -95,6 +95,18 @@ return [
                 "name" => "Designation",
                 "role" => "user",
                 "route" => "designation.designation.index"
+            ],
+        ],
+    ],
+    "Student Management" => [
+        "role" => "user",
+        "icon" => "icon-File",
+        "isHeader" => false,
+        "children" => [
+            [
+                "name" => "Student Registration",
+                "role" => "user",
+                "route" => "students.registration.index"
             ],
         ],
     ],

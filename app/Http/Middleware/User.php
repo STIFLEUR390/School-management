@@ -19,7 +19,7 @@ class User
 
         $user = $request->user();
 
-        if ($user && ($user->usertype === 'Admin' || $user->usertype === 'User')){
+        if ($user && ($user->role === 'Admin' || $user->role === 'User')){
             return $next($request);
         }
 

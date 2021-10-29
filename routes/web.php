@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
+use App\Http\Controllers\Backend\Student\StudentRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,5 +103,11 @@ Route::middleware('auth')->group(function () {
 
         Route::name('designation')->resource('designation', DesignationController::class)->except('show', 'destroy');
         Route::name('designation.designation.destroy')->get('/designation/delete/{id}', [DesignationController::class, 'destroy']);
+    });
+
+    // Student management
+
+    Route::prefix('students')->group(function () {
+        Route::name('students')->resource('/registration', StudentRegistrationController::class); //creation d'un éléve
     });
 });
