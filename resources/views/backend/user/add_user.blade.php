@@ -44,10 +44,11 @@
                                             <div class="form-group">
                                                 <h5>@lang('User Role') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <select name="usertype" id="usertype" required class="form-control">
+                                                    <select name="role" id="role" required class="form-control">
                                                         <option value="" selected disabled>Select Role</option>
-                                                        <option {{ old('usertype') == 'Admin' ? 'selected' : '' }} value="Admin">@lang('Admin')</option>
-                                                        <option {{ old('usertype') == 'Admin' ? 'selected' : '' }} value="User">@lang('User')</option>
+                                                        <option {{ old('role') == 'Admin' ? 'selected' : '' }} value="Admin">@lang('Admin')</option>
+                                                        <option {{ old('role') == 'Operator' ? 'selected' : '' }} value="Operator">@lang('Operator')</option>
+{{--                                                        <option {{ old('role') == 'User' ?  'selected' : '' }} value="User">@lang('User')</option>--}}
                                                     </select>
                                                 </div>
                                             </div>
@@ -72,20 +73,13 @@
                                                 {{--                                                <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div>--}}
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                       {{-- <div class="col-6">
                                             <div class="form-group">
                                                 <h5>@lang('User Password') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="password" name="password" class="form-control" required />
                                                 </div>
-                                                {{--                                                <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div>--}}
-                                            </div>
-                                        </div>
-                                        {{--<div class="col-12">
-                                            <div class="form-group">
-                                                <h5>Email Field <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="email" name="email" class="form-control" required data-validation-required-message="This field is required"> </div>
+                                                --}}{{--                                                <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div>--}}{{--
                                             </div>
                                         </div>--}}
                                     </div>

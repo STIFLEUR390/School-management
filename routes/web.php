@@ -108,6 +108,7 @@ Route::middleware('auth')->group(function () {
     // Student management
 
     Route::prefix('students')->group(function () {
-        Route::name('students')->resource('/registration', StudentRegistrationController::class); //creation d'un éléve
+        // Student Registration Route
+        Route::name('students')->resource('/registration', StudentRegistrationController::class);
     });
 });

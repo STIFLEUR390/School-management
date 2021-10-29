@@ -25,10 +25,10 @@
                                             <div class="form-group">
                                                 <h5>@lang('User Role') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <select name="usertype" id="usertype" required class="form-control">
+                                                    <select name="role" id="role" required class="form-control">
                                                         <option value="" disabled>Select Role</option>
-                                                        <option {{ old('usertype', $user->usertype) == 'Admin' ? 'selected' : '' }} value="Admin">@lang('Admin')</option>
-                                                        <option {{ old('usertype', $user->usertype) == 'User' ? 'selected' : '' }} value="User">@lang('User')</option>
+                                                        <option {{ old('role', $user->role) == 'Admin' ? 'selected' : '' }} value="Admin">@lang('Admin')</option>
+                                                        <option {{ old('role', $user->role) == 'Operator' ? 'selected' : '' }} value="Operator">@lang('Operator')</option>
                                                     </select>
                                                 </div>
                                             </div>

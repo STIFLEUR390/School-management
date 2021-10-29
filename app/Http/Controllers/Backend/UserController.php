@@ -40,16 +40,19 @@ class UserController extends Controller
             return back()->with($notification)->withInput();
         }
 
+        $code = rand(000000, 999999);
         $data = new User();
-        $data->usertype = $request->usertype;
+        $data->usertype = "Admin";
+        $data->role = $request->role;
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = bcrypt($request->password);
+        $data->code = $code;
+        $data->password = bcrypt($code);
         $data->save();
 
         $notification = array(
             'message' => __('User Inserted Successfully'),
-            'alert-type' => 'info'
+            'alert-type' => 'success'
         );
 
         return redirect()->route('user.view')->with($notification);
@@ -67,7 +70,7 @@ class UserController extends Controller
     public function userUpdate(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $user->usertype = $request->usertype;
+        $user->role = $request->role;
         $user->name = $request->name;
         $user->email = $request->email;
         if ($request->password){
@@ -77,7 +80,7 @@ class UserController extends Controller
 
         $notification = array(
             'message' => __('User Updated Successfully'),
-            'alert-type' => 'info'
+            'alert-type' => 'success'
         );
 
         return redirect()->route('user.view')->with($notification);
