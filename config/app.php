@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,6 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
 
     ],
 

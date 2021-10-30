@@ -112,5 +112,6 @@ Route::middleware('auth')->group(function () {
         Route::name('students')->resource('/registration', StudentRegistrationController::class);
         Route::name('students.year.class.wise')->get('/year/class/wise', [StudentRegistrationController::class, 'studentClassYearWise']);
         Route::name('students.registration.promotion')->get('/registration/promotion/{id}', [StudentRegistrationController::class, 'studentRegPromotion']);
+        Route::name('promotion.student.registration')->post('/registration/promotion/{id}', [StudentRegistrationController::class, 'studentUpdatePromotion']);
     });
 });

@@ -39,7 +39,7 @@
                                                     <select name="class_id" id="class_id" required class="form-control">
                                                         <option value="" {{ old('class_id', $class_id) ? '' : 'selected' }} disabled>Select Class</option>
                                                         @foreach($studentClasses as $class)
-                                                            <option {{ (old('class_id') == $class->id) ? 'selected' : '' }} value="{{ $class->id }}">{{ $class->name }}</option>
+                                                            <option {{ (old('class_id', $class_id) == $class->id) ? 'selected' : '' }} value="{{ $class->id }}">{{ $class->name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -99,15 +99,15 @@
                                                     <td>{{ $asssignStudent->student->code }}</td>
                                                 @endif
                                                 <td>
-                                                    <a href="{{ route('students.registration.edit', $asssignStudent->id) }}" class="text-info mr-10" data-toggle="tooltip" data-original-title="@lang('Edit')">
+                                                    <a href="{{ route('students.registration.edit', $asssignStudent->student_id) }}" class="text-info mr-10" data-toggle="tooltip" data-original-title="@lang('Edit')">
                                                         <i class="ti-marker-alt"></i>
                                                     </a>
-                                                    <a href="{{ route('students.registration.promotion', $asssignStudent->id) }}" class="text-primary mr-10" data-toggle="tooltip" data-original-title="@lang('Promotion')">
+                                                    <a href="{{ route('students.registration.promotion', $asssignStudent->student_id) }}" class="text-primary mr-10" data-toggle="tooltip" data-original-title="@lang('Promotion')">
                                                         <i class="fa fa-check"></i>
                                                     </a>
-                                                    <a target="_blank" href="{{ route('students.registration.destroy', $asssignStudent->id) }}"  class="text-danger " data-original-title="@lang('Details')" data-toggle="tooltip">
+                                                    {{--<a target="_blank" href="{{ route('students.registration.destroy', $asssignStudent->student_id) }}"  class="text-danger " data-original-title="@lang('Details')" data-toggle="tooltip">
                                                         <i class="fa fa-eye"></i>
-                                                    </a>
+                                                    </a>--}}
                                                 </td>
                                             </tr>
                                         @endforeach
