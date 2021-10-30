@@ -22,9 +22,25 @@ class StudentRegistrationController extends Controller
      */
     public function index()
     {
-        $asssignStudents = AssignStudent::all();
+        $studentYears = StudentYear::all();
+        $studentClasses = StudentClass::all();
 
-        return view('backend.student.student_registration.student_view', compact('asssignStudents'));
+        $year_id = StudentYear::orderBy('id', 'desc')->first()->id;
+        $class_id = StudentClass::orderBy('id', 'desc')->first()->id;
+        $asssignStudents = AssignStudent::where('year_id', $year_id)->where('class_id', $class_id)->get();
+
+        return view('backend.student.student_registration.student_view', compact('asssignStudents','studentYears', 'studentClasses', 'year_id', 'class_id'));
+    }
+
+    public function studentClassYearWise(Request $request){
+        $studentYears = StudentYear::all();
+        $studentClasses = StudentClass::all();
+
+        $year_id = $request->year_id;
+        $class_id = $request->class_id;
+        $asssignStudents = AssignStudent::where('year_id', $year_id)->where('class_id', $class_id)->get();
+
+        return view('backend.student.student_registration.student_view', compact('asssignStudents','studentYears', 'studentClasses', 'year_id', 'class_id'));
     }
 
     /**
@@ -56,7 +72,13 @@ class StudentRegistrationController extends Controller
             if ($student == null){
                 $firstReq = 0;
                 $studentId = $firstReq +1;
-                $id_no = '000'.$studentId;
+                if ($studentId < 10){
+                    $id_no = '000'.$studentId;
+                } elseif ($studentId < 100) {
+                    $id_no = '00'.$studentId;
+                } elseif ($studentId < 1000) {
+                    $id_no = '0'.$studentId;
+                }
             } else {
                 $student = User::where('usertype', 'Student')->orderBy('id', 'DESC')->first()->id;
                 $studentId = $student + 1;
@@ -74,6 +96,8 @@ class StudentRegistrationController extends Controller
             $code = rand(000000, 999999);
             $user->id_no = $final_id_no;
             $user->password = bcrypt($code);
+            $user->code = $code;
+            $user->usertype = 'Student';
             $user->name = $request->name;
             $user->fname = $request->fname;
             $user->mname = $request->mname;
@@ -124,6 +148,17 @@ class StudentRegistrationController extends Controller
     public function show($id)
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function studentRegPromotion($id)
+    {
+        dd($id);
     }
 
     /**

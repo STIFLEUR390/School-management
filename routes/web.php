@@ -110,5 +110,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('students')->group(function () {
         // Student Registration Route
         Route::name('students')->resource('/registration', StudentRegistrationController::class);
+        Route::name('students.year.class.wise')->get('/year/class/wise', [StudentRegistrationController::class, 'studentClassYearWise']);
+        Route::name('students.registration.promotion')->get('/registration/promotion/{id}', [StudentRegistrationController::class, 'studentRegPromotion']);
     });
 });
