@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\Student\StudentRegistrationController;
+use App\Http\Controllers\Backend\Student\StudentRollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,5 +114,10 @@ Route::middleware('auth')->group(function () {
         Route::name('students.year.class.wise')->get('/year/class/wise', [StudentRegistrationController::class, 'studentClassYearWise']);
         Route::name('students.registration.promotion')->get('/registration/promotion/{id}', [StudentRegistrationController::class, 'studentRegPromotion']);
         Route::name('promotion.student.registration')->post('/registration/promotion/{id}', [StudentRegistrationController::class, 'studentUpdatePromotion']);
+
+        // Student Roll Generate Routes
+        Route::get('roll/generate/view', [StudentRollController::class, 'index'])->name('roll.generate.index');
+        Route::get('reg/get-students', [StudentRollController::class, 'getStudents'])->name('student.registration.get');
+        Route::name('roll.generate.store')->post('roll/generate/store', [StudentRollController::class, 'store']);
     });
 });

@@ -105,9 +105,9 @@
                                                     <a href="{{ route('students.registration.promotion', $asssignStudent->student_id) }}" class="text-primary mr-10" data-toggle="tooltip" data-original-title="@lang('Promotion')">
                                                         <i class="fa fa-check"></i>
                                                     </a>
-                                                    {{--<a target="_blank" href="{{ route('students.registration.destroy', $asssignStudent->student_id) }}"  class="text-danger " data-original-title="@lang('Details')" data-toggle="tooltip">
+                                                    <a target="_blank" href="{{ route('students.registration.destroy', $asssignStudent->student_id) }}"  class="text-danger " data-original-title="@lang('Details')" data-toggle="tooltip">
                                                         <i class="fa fa-eye"></i>
-                                                    </a>--}}
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach

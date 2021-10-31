@@ -108,6 +108,11 @@ return [
                 "role" => "user",
                 "route" => "students.registration.index"
             ],
+            [
+                "name" => "Roll Generates",
+                "role" => "user",
+                "route" => "roll.generate.index"
+            ],
         ],
     ],
 ];

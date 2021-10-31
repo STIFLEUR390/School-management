@@ -150,6 +150,10 @@ class StudentRegistrationController extends Controller
     public function show($id)
     {
         $assignStudent = AssignStudent::with(['student', 'discount'])->where('student_id', $id)->first();
+
+        $pdf = PDF::loadView('backend.student.student_registration.student_details_pdf', compact('assignStudent'));
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('document.pdf');
     }
 
     /**
