@@ -113,6 +113,11 @@ return [
                 "role" => "user",
                 "route" => "roll.generate.index"
             ],
+            [
+                "name" => "Registration Fee",
+                "role" => "user",
+                "route" => "registration.fee.view"
+            ],
         ],
     ],
 ];

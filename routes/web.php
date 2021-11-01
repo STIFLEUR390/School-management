@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
+use App\Http\Controllers\Backend\student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRegistrationController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 
@@ -119,5 +120,10 @@ Route::middleware('auth')->group(function () {
         Route::get('roll/generate/view', [StudentRollController::class, 'index'])->name('roll.generate.index');
         Route::get('reg/get-students', [StudentRollController::class, 'getStudents'])->name('student.registration.get');
         Route::name('roll.generate.store')->post('roll/generate/store', [StudentRollController::class, 'store']);
+
+        // Registration Fee Route
+        Route::get('/reg/fee/view', [RegistrationFeeController::class, 'index'])->name('registration.fee.view');
+        Route::get('/reg/fee/classwisedata', [RegistrationFeeController::class, 'RegFeeClassData'])->name('student.registration.fee.classwise.get');
+        Route::get('/reg/fee/payslip', [RegistrationFeeController::class, 'RegFeePayslip'])->name('student.registration.fee.payslip');
     });
 });
