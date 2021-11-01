@@ -60,11 +60,11 @@ class RegistrationFeeController extends Controller
 
             $html[$key]['tdsource'] .= '<td>' . priceFormat($finalfee) . '</td>';
             $html[$key]['tdsource'] .= '<td>';
-            $html[$key]['tdsource'] .= '<a class="btn btn-sm btn-' . $color . '" title="PaySlip" target="_blanks" href="' . route("student.registration.fee.payslip") . '?class_id=' . $v->class_id . '&student_id=' . $v->student_id . '">Fee Slip</a>';
+            $html[$key]['tdsource'] .= '<a class="btn btn-sm btn-' . $color . '" title="PaySlip" target="_blanks" href="' . route("student.registration.fee.payslip") . '?class_id=' . $v->class_id . '&student_id=' . $v->student_id . '">'.__('Fee Slip').'</a>';
             $html[$key]['tdsource'] .= '</td>';
         }
         return response()->json(@$html);
-    } // end method 
+    } // end method
 
 
     public function RegFeePayslip(Request $request)
