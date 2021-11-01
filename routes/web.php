@@ -123,13 +123,14 @@ Route::middleware('auth')->group(function () {
         Route::name('roll.generate.store')->post('roll/generate/store', [StudentRollController::class, 'store']);
 
         // Registration Fee Route
-        Route::get('/reg/fee/view', [RegistrationFeeController::class, 'index'])->name('registration.fee.view');
-        Route::get('/reg/fee/classwisedata', [RegistrationFeeController::class, 'RegFeeClassData'])->name('student.registration.fee.classwise.get');
+        Route::get('reg/fee/view', \App\Http\Livewire\Backend\Student\RegistrationFeeComponent::class)->name('registration.fee.view');
+//        Route::get('/reg/fee/classwisedata', [RegistrationFeeController::class, 'RegFeeClassData'])->name('student.registration.fee.classwise.get');
         Route::get('/reg/fee/payslip', [RegistrationFeeController::class, 'RegFeePayslip'])->name('student.registration.fee.payslip');
 
         // Monthly Fee Route
-        Route::get('/monthly/fee/view', [MonthlyFeeController::class, 'index'])->name('monthly.fee.view');
-        Route::get('/monthly/fee/classwisedata', [MonthlyFeeController::class, 'MonthlyFeeClassData'])->name('student.monthly.fee.classwise.get');
+        Route::get('/monthly/fee/view', \App\Http\Livewire\Backend\Student\MonthlyFeeComponent::class)->name('monthly.fee.view');
+//        Route::get('/monthly/fee/view', [MonthlyFeeController::class, 'index'])->name('monthly.fee.view');
+//        Route::get('/monthly/fee/classwisedata', [MonthlyFeeController::class, 'MonthlyFeeClassData'])->name('student.monthly.fee.classwise.get');
         Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'MonthlyFeePayslip'])->name('student.monthly.fee.payslip');
     });
 });
