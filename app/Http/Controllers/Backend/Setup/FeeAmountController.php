@@ -112,7 +112,7 @@ class FeeAmountController extends Controller
         } else {
             $countClass = count($request->class_id);
             FeeCategoryAmount::where('fee_category_id', $id)->delete();
-            for ($id=0; $i<$countClass; $i++){
+            for ($i=0; $i<$countClass; $i++){
                 $feeAmount = new FeeCategoryAmount();
                 $feeAmount->fee_category_id = $request->fee_category_id;
                 $feeAmount->class_id = $request->class_id[$i];

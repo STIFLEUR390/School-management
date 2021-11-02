@@ -5,7 +5,7 @@
                 <div class="col-12">
                     <div class="box bb-3 border-warning">
                         <div class="box-header">
-                            <h4 class="box-title">@lang('Student') <strong>@lang('Registration Fee')</strong></h4>
+                            <h4 class="box-title">@lang('Student') <strong>@lang('Exam Fee')</strong></h4>
                         </div>
 
                         <div class="box-body">
@@ -40,22 +40,13 @@
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <h5>@lang('Month') <span class="text-danger"> </span></h5>
+                                        <h5>@lang('Exam Type') <span class="text-danger"> </span></h5>
                                         <div class="controls">
-                                            <select wire:model="month" class="form-control">
-                                                <option value="" selected="" disabled="">Select Month</option>
-                                                <option value="January">@lang('January')</option>
-                                                <option value="Febuary">@lang('Febuary')</option>
-                                                <option value="March">@lang('March')</option>
-                                                <option value="April">@lang('April')</option>
-                                                <option value="May">@lang('May')</option>
-                                                <option value="Jun">@lang('Jun')</option>
-                                                <option value="July">@lang('July')</option>
-                                                <option value="August">@lang('August')</option>
-                                                <option value="September">@lang('September')</option>
-                                                <option value="October">@lang('October')</option>
-                                                <option value="November">@lang('November')</option>
-                                                <option value="December">@lang('December')</option>
+                                            <select wire:model="exam_type_id" class="form-control">
+                                                <option value="" disabled>Select Exam Type</option>
+                                                @foreach ($exam_types as $exam)
+                                                    <option value="{{ $exam->id }}">{{ $exam->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -76,7 +67,7 @@
                                                 <th>@lang('ID No')</th>
                                                 <th>@lang('Student Name')</th>
                                                 <th>@lang('Roll No')</th>
-                                                <th>@lang('Monthly Fee')</th>
+                                                <th>@lang('Exam Type Fee')</th>
                                                 <th>@lang('Discount')</th>
                                                 <th>@lang('Student Fee')</th>
                                                 <th>@lang('Action')</th>
@@ -85,7 +76,7 @@
                                             <tbody>
                                             @foreach($assignStudents as $key => $assignStudent)
                                                 @php
-                                                    $registrationfee = \App\Models\FeeCategoryAmount::where('fee_category_id','2')->where('class_id', $assignStudent->class_id)->first();
+                                                    $registrationfee = \App\Models\FeeCategoryAmount::where('fee_category_id','5')->where('class_id', $assignStudent->class_id)->first();
                                                     $color = 'success';
 
                                                     $originalfee = $registrationfee->amount;
@@ -103,7 +94,7 @@
 
                                                     <td>{{ priceFormat($finalfee) }}</td>
                                                     <td>
-                                                        <a class="btn btn-{{ $color }}" title="PaySlip" target="_blank" href="{{ route('student.monthly.fee.payslip', ['class_id' => $assignStudent->class_id, 'student_id' => $assignStudent->student_id, 'month' => $month]) }}">@lang('Fee Slip')</a>
+                                                        <a class="btn btn-{{ $color }}" title="PaySlip" target="_blank" href="{{ route('student.exam.fee.payslip', ['class_id' => $assignStudent->class_id, 'student_id' => $assignStudent->student_id, 'exam_type_id' => $exam_type_id]) }}">@lang('Fee Slip')</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

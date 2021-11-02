@@ -118,11 +118,17 @@ return [
                 "role" => "user",
                 "route" => "registration.fee.view"
             ],
-             [
+            [
                  "name" => "Monthly Fee",
                  "role" => "user",
                  "route" => "monthly.fee.view"
-             ],
+            ],
+            [
+                "name" => "Exam Fee",
+                "Role" => "user",
+                "route" => "exam.fee.view"
+            ],
+
         ],
     ],
 ];

@@ -124,13 +124,14 @@ Route::middleware('auth')->group(function () {
 
         // Registration Fee Route
         Route::get('reg/fee/view', \App\Http\Livewire\Backend\Student\RegistrationFeeComponent::class)->name('registration.fee.view');
-//        Route::get('/reg/fee/classwisedata', [RegistrationFeeController::class, 'RegFeeClassData'])->name('student.registration.fee.classwise.get');
         Route::get('/reg/fee/payslip', [RegistrationFeeController::class, 'RegFeePayslip'])->name('student.registration.fee.payslip');
 
         // Monthly Fee Route
         Route::get('/monthly/fee/view', \App\Http\Livewire\Backend\Student\MonthlyFeeComponent::class)->name('monthly.fee.view');
-//        Route::get('/monthly/fee/view', [MonthlyFeeController::class, 'index'])->name('monthly.fee.view');
-//        Route::get('/monthly/fee/classwisedata', [MonthlyFeeController::class, 'MonthlyFeeClassData'])->name('student.monthly.fee.classwise.get');
         Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'MonthlyFeePayslip'])->name('student.monthly.fee.payslip');
+
+        // Exam fee Route
+        Route::get("/exam/fee/view", \App\Http\Livewire\Backend\Student\ExamFeeComponent::class)->name('exam.fee.view');
+        Route::get("/exam/fee/payslip", [\App\Http\Controllers\Backend\Student\ExamFeeController::class,'examFeePayslip'])->name('student.exam.fee.payslip');
     });
 });

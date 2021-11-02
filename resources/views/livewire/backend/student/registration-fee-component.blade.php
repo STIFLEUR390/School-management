@@ -76,7 +76,7 @@
                                                         <td>{{ $assignStudent->student->name }}</td>
                                                         <td>{{ $assignStudent->roll }}</td>
                                                         <td>{{ priceFormat($registrationfee->amount) }}</td>
-                                                        <td>{{ $assignStudent->discount->discount }}</td>
+                                                        <td>{{ $assignStudent->discount->discount }} %</td>
 
                                                         <td>{{ priceFormat($finalfee) }}</td>
                                                         <td>
