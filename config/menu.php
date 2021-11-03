@@ -131,4 +131,16 @@ return [
 
         ],
     ],
+    "Employee Management" => [
+        "role" => "user",
+        "icon" => "icon-Chart-pie",
+        "isHeader" => false,
+        "children" => [
+            [
+                "name" => "Employee Registration",
+                "role" => "user",
+                "route" => "employee.registration.index"
+            ],
+        ]
+    ]
 ];

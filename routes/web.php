@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
@@ -133,5 +134,10 @@ Route::middleware('auth')->group(function () {
         // Exam fee Route
         Route::get("/exam/fee/view", \App\Http\Livewire\Backend\Student\ExamFeeComponent::class)->name('exam.fee.view');
         Route::get("/exam/fee/payslip", [\App\Http\Controllers\Backend\Student\ExamFeeController::class,'examFeePayslip'])->name('student.exam.fee.payslip');
+    });
+
+    Route::prefix('employee')->group(function () {
+        Route::name('employee')->resource('/registration', EmployeeRegController::class)->except('destroy', 'show');
+        Route::name('employee.registration.detail')->get('/registration/detail/{id}', [EmployeeRegController::class, 'destroy']);
     });
 });

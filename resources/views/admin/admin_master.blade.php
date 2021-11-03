@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -90,7 +90,28 @@
 <script src="{{ asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
 
 <script src="{{ asset('assets/vendor_components/datatable/datatables.min.js') }}"></script>
-<script src="{{ asset('backend/js/pages/data-table.js') }}"></script>
+{{--<script src="{{ asset('backend/js/pages/data-table.js') }}"></script>--}}
+@if(config("app.locale") == 'fr')
+    <script>
+        $(function () {
+            "use strict";
+
+            $('#example1').DataTable({
+                language: {
+                    url: '{{ asset('fr_fr.json') }}'
+                }
+            });
+        }); // End of use strict
+    </script>
+@else
+    <script>
+        $(function () {
+            "use strict";
+
+            $('#example1').DataTable();
+        }); // End of use strict
+    </script>
+@endif
 @yield('scripts')
 <!-- EduAdmin App -->
 <script src="{{ asset('backend/js/template.js') }}"></script>
