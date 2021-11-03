@@ -12,7 +12,9 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title">@lang('User list')</h3>
-                                <a href="{{ route('user.add') }}" style="float: right;" class="waves-effect waves-light btn btn-rounded btn-success mb-5"><i class="ti-plus"></i> @lang("Add User")</a>
+                                <a href="{{ route('user.add') }}" style="float: right;"
+                                    class="mb-5 waves-effect waves-light btn btn-rounded btn-success"><i
+                                        class="ti-plus"></i> @lang("Add User")</a>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -29,7 +31,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($users as $key => $user)
+                                            @foreach ($users as $key => $user)
                                                 <tr>
                                                     <td width="5%">{{ $key + 1 }}</td>
                                                     <td>@lang($user->role)</td>
@@ -37,10 +39,14 @@
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ $user->code }}</td>
                                                     <td width="10%">
-                                                        <a href="{{ route('user.edit', $user->id ) }}" class="text-info mr-10" data-toggle="tooltip" data-original-title="@lang('Edit')">
+                                                        <a href="{{ route('user.edit', $user->id) }}"
+                                                            class="mr-10 text-info" data-toggle="tooltip"
+                                                            data-original-title="@lang('Edit')">
                                                             <i class="ti-marker-alt"></i>
                                                         </a>
-                                                        <a href="{{ route('user.delete', $user->id) }}"  class="text-danger delete" data-original-title="@lang('Delete')" data-toggle="tooltip">
+                                                        <a href="{{ route('user.delete', $user->id) }}"
+                                                            class="text-danger delete" data-original-title="@lang('Delete')"
+                                                            data-toggle="tooltip">
                                                             <i class="ti-trash"></i>
                                                         </a>
                                                     </td>

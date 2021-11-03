@@ -24,7 +24,7 @@
                                                 <h5>@lang('Year') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="year_id" id="year_id" required class="form-control">
-                                                        <option value="" {{ old('year_id') ? '' : 'selected' }} disabled>Select Year</option>
+                                                        <option value="" {{ old('year_id') ? '' : 'selected' }} disabled>@lang('Select Year')</option>
                                                         @foreach($years as $year)
                                                             <option {{ (old('year_id') == $year->id) ? 'selected' : '' }} value="{{ $year->id }}">{{ $year->name }}</option>
                                                         @endforeach
@@ -37,7 +37,7 @@
                                                 <h5>@lang('Class') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="class_id" id="class_id" required class="form-control">
-                                                        <option value="" {{ old('class_id') ? '' : 'selected' }} disabled>Select Class</option>
+                                                        <option value="" {{ old('class_id') ? '' : 'selected' }} disabled>@lang('Select Class')</option>
                                                         @foreach($classes as $class)
                                                             <option {{ (old('class_id') == $class->id) ? 'selected' : '' }} value="{{ $class->id }}">{{ $class->name }}</option>
                                                         @endforeach

@@ -11,5 +11,5 @@
             </li>
         </ul>
     </div>
-    &copy; <script> document.write(new Date().getFullYear()); </script> <a href="{{ env("APP_URL") }}">{{ __(env('APP_NAME')) }}</a>. @lang('All rights reserved.')
+    &copy; <script> document.write(new Date().getFullYear()); </script> <a href="{{ env("APP_URL") }}">{{ __(env("APP_NAME", "Easy School Management System")) }}</a>. @lang('All rights reserved.')
 </footer>

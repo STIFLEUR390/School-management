@@ -24,7 +24,8 @@
                                             <div class="form-group">
                                                 <h5>@lang('Current Password') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="password" id="current_password" name="oldpassword" class="form-control" required />
+                                                    <input type="password" id="current_password" name="oldpassword"
+                                                        class="form-control" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -32,7 +33,8 @@
                                             <div class="form-group">
                                                 <h5>@lang('New Password') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="password" id="password" name="password" class="form-control" required />
+                                                    <input type="password" id="password" name="password"
+                                                        class="form-control" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -40,7 +42,8 @@
                                             <div class="form-group">
                                                 <h5>@lang('Confirm Password') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required />
+                                                    <input type="password" id="password_confirmation"
+                                                        name="password_confirmation" class="form-control" required />
                                                 </div>
                                             </div>
                                         </div>

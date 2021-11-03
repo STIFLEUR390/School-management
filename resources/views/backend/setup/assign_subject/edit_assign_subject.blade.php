@@ -36,7 +36,7 @@
                                                 <h5>@lang('Class Name') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="class_id" id="class_id" required class="form-control">
-                                                        <option value="" selected disabled>Select Class</option>
+                                                        <option value="" selected disabled>@lang('Select Class')</option>
                                                         @foreach($studentClasses as $studentClass)
                                                             <option {{ ($assignSubject[0]->class_id == $studentClass->id)? 'selected': '' }} value="{{ old('class_id', $studentClass->id) }}">{{ $studentClass->name }}</option>
                                                         @endforeach
@@ -54,7 +54,7 @@
                                                         <h5>@lang('Student Subject') <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="subject_id[]"  required class="form-control">
-                                                                <option value="" selected disabled>Select Fee Category</option>
+                                                                <option value="" selected disabled>@lang('Select Fee Category')</option>
                                                                 @foreach($schoolSubjects as $schoolSubject)
                                                                     <option {{ ($edit->subject_id == $schoolSubject->id)? 'selected': '' }} value="{{ $schoolSubject->id }}">{{ $schoolSubject->name }}</option>
                                                                 @endforeach

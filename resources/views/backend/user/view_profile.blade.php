@@ -5,7 +5,7 @@
     <div class="content-wrapper">
         <div class="container-full">
             <!-- Content Header (Page header) -->
-        {{--<div class="content-header">
+            {{-- <div class="content-header">
             <div class="d-flex align-items-center">
                 <div class="mr-auto">
                     <h3 class="page-title">Data Tables</h3>
@@ -21,9 +21,9 @@
                 </div>
 
             </div>
-        </div>--}}
+        </div> --}}
 
-        <!-- Main content -->
+            <!-- Main content -->
             <section class="content">
                 <div class="row">
                     <div class="col-12">
@@ -31,23 +31,29 @@
 
                         <div class="box box-widget widget-user">
                             <!-- Add the bg color to the header using any of the bg-* classes -->
-                            <div class="widget-user-header bg-black" style="background: url('../images/gallery/full/10.jpg') center center;">
+                            <div class="bg-black widget-user-header"
+                                style="background: url('../images/gallery/full/10.jpg') center center;">
                                 <h3 class="widget-user-username">@lang('User Name') : {{ $user->name }}</h3>
 
-                                <a href="{{ route('profile.edit') }}" style="float: right;" class="waves-effect waves-light btn btn-rounded btn-success mb-5"><i class="ti-plus"></i> @lang("Edit profile")</a>
+                                <a href="{{ route('profile.edit') }}" style="float: right;"
+                                    class="mb-5 waves-effect waves-light btn btn-rounded btn-success"><i
+                                        class="ti-plus"></i> @lang("Edit profile")</a>
 
                                 <h6 class="widget-user-desc">@lang('User Type') : {{ $user->usertype }}</h6>
                                 <h6 class="widget-user-desc">@lang('User Email') : {{ $user->email }}</h6>
 
                             </div>
                             <div class="widget-user-image">
-                                <img class="rounded-circle" src="{{ (!empty($user->image))? url('upload/user_images/'.$user->image) : url('upload/no_image.jpg') }}" alt="User Avatar">
+                                <img class="rounded-circle"
+                                    src="{{ !empty($user->image) ? url('upload/user_images/' . $user->image) : url('upload/no_image.jpg') }}"
+                                    alt="User Avatar">
                             </div>
                             <div class="box-footer">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="description-block">
-                                            <h5 class="description-header">Mobile N°</h5>
+                                            {{-- <h5 class="description-header">@lang('Mobile N°')</h5> --}}
+                                            <h5 class="description-header">@lang('Mobile No')</h5>
                                             <span class="description-text">{{ $user->mobile }}</span>
                                         </div>
                                         <!-- /.description-block -->

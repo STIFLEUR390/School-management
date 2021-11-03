@@ -119,9 +119,9 @@ return [
                 "route" => "registration.fee.view"
             ],
             [
-                 "name" => "Monthly Fee",
-                 "role" => "user",
-                 "route" => "monthly.fee.view"
+                "name" => "Monthly Fee",
+                "role" => "user",
+                "route" => "monthly.fee.view"
             ],
             [
                 "name" => "Exam Fee",

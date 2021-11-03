@@ -15,7 +15,7 @@
                                         <h5>@lang('Year') <span class="text-danger"> </span></h5>
                                         <div class="controls">
                                             <select  wire:model="year_id"  class="form-control">
-                                                <option value="" disabled >Select Year</option>
+                                                <option value="" disabled >@lang('Select Year')</option>
                                                 @foreach ($years as $year)
                                                     <option value="{{ $year->id }}">{{ $year->name }}</option>
                                                 @endforeach
@@ -29,7 +29,7 @@
                                         <h5>@lang('Class') <span class="text-danger"> </span></h5>
                                         <div class="controls">
                                             <select wire:model="class_id" class="form-control">
-                                                <option value="" disabled>Select Class</option>
+                                                <option value="" disabled>@lang('Select Class')</option>
                                                 @foreach ($classes as $class)
                                                     <option value="{{ $class->id }}">{{ $class->name }}</option>
                                                 @endforeach
@@ -43,7 +43,7 @@
                                         <h5>@lang('Month') <span class="text-danger"> </span></h5>
                                         <div class="controls">
                                             <select wire:model="month" class="form-control">
-                                                <option value="" selected="" disabled="">Select Month</option>
+                                                <option value="" selected="" disabled="">@lang('Select Month')</option>
                                                 <option value="January">@lang('January')</option>
                                                 <option value="Febuary">@lang('Febuary')</option>
                                                 <option value="March">@lang('March')</option>

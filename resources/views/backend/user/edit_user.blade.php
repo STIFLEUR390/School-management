@@ -5,7 +5,7 @@
     <div class="content-wrapper">
         <div class="container-full">
 
-        <!-- Main content -->
+            <!-- Main content -->
             <section class="content">
 
                 <!-- Basic Forms -->
@@ -27,8 +27,12 @@
                                                 <div class="controls">
                                                     <select name="role" id="role" required class="form-control">
                                                         <option value="" disabled>Select Role</option>
-                                                        <option {{ old('role', $user->role) == 'Admin' ? 'selected' : '' }} value="Admin">@lang('Admin')</option>
-                                                        <option {{ old('role', $user->role) == 'Operator' ? 'selected' : '' }} value="Operator">@lang('Operator')</option>
+                                                        <option
+                                                            {{ old('role', $user->role) == 'Admin' ? 'selected' : '' }}
+                                                            value="Admin">@lang('Admin')</option>
+                                                        <option
+                                                            {{ old('role', $user->role) == 'Operator' ? 'selected' : '' }}
+                                                            value="Operator">@lang('Operator')</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -37,9 +41,10 @@
                                             <div class="form-group">
                                                 <h5>@lang('User Name') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" value="{{ old('name', $user->name) }}" name="name" class="form-control" required />
+                                                    <input type="text" value="{{ old('name', $user->name) }}" name="name"
+                                                        class="form-control" required />
                                                 </div>
-                                                {{--                                                <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div>--}}
+                                                {{-- <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -48,19 +53,20 @@
                                             <div class="form-group">
                                                 <h5>@lang('User Email') <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="email" value="{{ old('email', $user->email) }}" name="email" class="form-control" required />
+                                                    <input type="email" value="{{ old('email', $user->email) }}"
+                                                        name="email" class="form-control" required />
                                                 </div>
-                                                {{--                                                <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div>--}}
+                                                {{-- <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div> --}}
                                             </div>
                                         </div>
-                                        {{--<div class="col-6">
+                                        {{-- <div class="col-6">
                                             <div class="form-group">
                                                 <h5>@lang('User Password')</h5>
                                                 <div class="controls">
                                                     <input type="password" name="password" class="form-control" />
                                                 </div>
                                             </div>
-                                        </div>--}}
+                                        </div> --}}
                                     </div>
                                     <div class="text-xs-right">
                                         <input type="submit" value="@lang('Save')" class="btn btn-rounded btn-info">

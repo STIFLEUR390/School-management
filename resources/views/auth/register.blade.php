@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-    <title>{{ env('APP_NAME') }} - Registration </title>
+    <title>{{ env('APP_NAME') }} - @lang('Registration') </title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
@@ -82,7 +82,7 @@
                     </div>
 
                     <div class="text-center">
-                        <p class="mt-20 text-white">- Register With -</p>
+                        <p class="mt-20 text-white">- @lang('Register With') -</p>
                         <p class="gap-items-2 mb-20">
                             <a class="btn btn-social-icon btn-round btn-facebook" href="#"><i class="fa fa-facebook"></i></a>
                             <a class="btn btn-social-icon btn-round btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
