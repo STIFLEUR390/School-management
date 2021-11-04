@@ -11,9 +11,9 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">@lang('Employee List')</h3>
+                                <h3 class="box-title">@lang('Employee Salary List')</h3>
                                 <a href="{{ route('employee.registration.create') }}" style="float: right;" class="mb-5 waves-effect waves-light btn btn-rounded btn-success">
-                                    <i class="ti-plus"></i> @lang("Add Employee")
+                                    <i class="ti-plus"></i> @lang("Add Employee Salary")
                                 </a>
                             </div>
                             <!-- /.box-header -->
@@ -49,15 +49,15 @@
                                                     <td> {{ $employee->code }}</td>
                                                 @endif
                                                 <td width="10%">
-                                                    <a href="{{ route('employee.registration.edit', $employee->id) }}"
+                                                    <a href="{{ route('employee.salary.edit', $employee->id) }}"
                                                        class="mr-10 text-info" data-toggle="tooltip"
-                                                       data-original-title="@lang('Edit')">
-                                                        <i class="ti-marker-alt"></i>
+                                                       data-original-title="@lang('Increment')">
+                                                        <i class="fa fa-plus-circle"></i>
                                                     </a>
-                                                    <a target="_blank" href="{{ route('employee.registration.detail', $employee->id) }}"
-                                                       class="mr-10 text-primary" data-toggle="tooltip"
+                                                    <a target="_blank" href="{{ route('employee.salary.show', $employee->id) }}"
+                                                       class="mr-10 text-danger" data-toggle="tooltip"
                                                        data-original-title="@lang('Details')">
-                                                        <i class="fa fa-check"></i>
+                                                        <i class="fa fa-eye"></i>
                                                     </a>
                                                 </td>
                                             </tr>

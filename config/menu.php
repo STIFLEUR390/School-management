@@ -141,6 +141,11 @@ return [
                 "role" => "user",
                 "route" => "employee.registration.index"
             ],
+            [
+                "name" => "Employee Salary",
+                "role" => "user",
+                "route" => "employee.salary.index"
+            ],
         ]
     ]
 ];

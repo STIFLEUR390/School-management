@@ -319,5 +319,15 @@
     "Employee Name": "Nom de l'employé",
     "Employee Details": "Détails de l'employé",
     "Employee ID No": "Numéro d'identification de l'employé",
-    "Edit Employee": "Modifier l'employé"
+    "Edit Employee": "Modifier l'employé",
+    "Employee Salary List": "Liste des salaires des employés",
+    "Add Employee Salary": "Ajouter le salaire d'un employé",
+    "Employee Salary Details": "Détails du salaire des employés",
+    "Increment": "augmentation",
+    "Previous Salary": "Salaire précédent",
+    "Increment Salary": "Augmentation de salaire",
+    "Present Salary": "Salaire actuel",
+    "Effective Date": "Date d'effet",
+    "Effected Date": "Date d'effet",
+    "Salary Amount": "Montant du salaire"
 }
