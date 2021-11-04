@@ -329,5 +329,13 @@
     "Present Salary": "Salaire actuel",
     "Effective Date": "Date d'effet",
     "Effected Date": "Date d'effet",
-    "Salary Amount": "Montant du salaire"
+    "Salary Amount": "Montant du salaire",
+    "Add Employee Leave": "Ajouter un congé d'employé",
+    "Purpose": "But",
+    "Start Date": "Date de début",
+    "End Date": "Date de fin",
+    "Edit Employee Leave": "Modifier le congé de l'employé",
+    "Leave Purpose": "Quitter But",
+    "Select Employee Name": "Sélectionnez le nom de l'employé",
+    "New Purpose": "Nouvel objectif"
 }

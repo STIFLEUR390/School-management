@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
@@ -141,5 +142,7 @@ Route::middleware('auth')->group(function () {
         Route::name('employee')->resource('/registration', EmployeeRegController::class)->except('destroy', 'show');
         Route::name('employee.registration.detail')->get('/registration/detail/{id}', [EmployeeRegController::class, 'destroy']);
         Route::name('employee')->resource('/salary', EmployeeSalaryController::class)->except('destroy', 'create', 'store');
+        Route::name('employee')->resource('/leave', EmployeeLeaveController::class)->except('show', 'destroy');
+        Route::name('employee.leave.destroy')->get('employee/leave/{id}', [EmployeeLeaveController::class, 'destroy']);
     });
 });
