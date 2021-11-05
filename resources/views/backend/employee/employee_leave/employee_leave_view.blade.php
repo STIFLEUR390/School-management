@@ -46,9 +46,9 @@
                                                        data-original-title="@lang('Edit')">
                                                         <i class="ti-marker-alt"></i>
                                                     </a>
-                                                    <a target="_blank" href="{{ route('employee.leave.destroy', $leave->id) }}"
-                                                       class="mr-10 text-primary" data-toggle="tooltip"
-                                                       data-original-title="@lang('Details')">
+                                                    <a  href="{{ route('employee.leave.destroy', $leave->id) }}"
+                                                       class="mr-10 text-danger delete" data-toggle="tooltip"
+                                                       data-original-title="@lang('Delete')">
                                                         <i class="ti-trash"></i>
                                                     </a>
                                                 </td>

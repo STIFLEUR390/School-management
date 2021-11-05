@@ -337,5 +337,10 @@
     "Edit Employee Leave": "Modifier le congé de l'employé",
     "Leave Purpose": "Quitter But",
     "Select Employee Name": "Sélectionnez le nom de l'employé",
-    "New Purpose": "Nouvel objectif"
+    "New Purpose": "Nouvel objectif",
+    "Write Purpose": "Entrér l'objectif",
+    "Select Leave Purpose": "Séléctionner un objectif",
+    "Employee Leave Data Inserted Successfully": "Congé employé inséré avec succès",
+    "Employee Leave Data Updated Successfully": "Congé employé mis à jour avec succès",
+    "Employee Leave Data Deleted Successfully": "Congé employé supprimer avec succès"
 }
