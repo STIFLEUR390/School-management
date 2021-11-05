@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
+use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
@@ -144,5 +146,9 @@ Route::middleware('auth')->group(function () {
         Route::name('employee')->resource('/salary', EmployeeSalaryController::class)->except('destroy', 'create', 'store');
         Route::name('employee')->resource('/leave', EmployeeLeaveController::class)->except('show', 'destroy');
         Route::name('employee.leave.destroy')->get('employee/leave/{id}', [EmployeeLeaveController::class, 'destroy']);
+        Route::name('employee')->resource('/attendance', EmployeeAttendanceController::class)->except('destroy', 'update');
+
+        Route::name('employee.monthly.salary')->get('monthly/salary', \App\Http\Livewire\Backend\Employee\MonthlySalaryComponent::class);
+        Route::name('employee.monthly.salary.payslip')->get('monthly/salary/payslip/{id}', [MonthlySalaryController::class, 'payslip']);
     });
 });

@@ -150,7 +150,17 @@ return [
                 "name" => "Employee Leave",
                 "role" => "user",
                 "route" => "employee.leave.index"
-            ]
+            ],
+            [
+                "name" => "Employee Attendance",
+                "role" => "user",
+                "route" => "employee.attendance.index"
+            ],
+            [
+                "name" => "Employee Monthly Salary",
+                "role" => "user",
+                "route" => "employee.monthly.salary"
+            ],
         ]
     ]
 ];
