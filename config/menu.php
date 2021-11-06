@@ -162,5 +162,22 @@ return [
                 "route" => "employee.monthly.salary"
             ],
         ]
-    ]
+    ],
+    "Marks Management" => [
+        "role" => "user",
+        "icon" => "icon-Chart-pie",
+        "isHeader" => false,
+        "children" => [
+            [
+                "name" => "Marks Entry",
+                "role" => "user",
+                "route" => "marks.entry.create",
+            ],
+            [
+                "name" => "Marks Edit",
+                "role" => "user",
+                "route" => "marks.entry.index",
+            ],
+        ],
+    ],
 ];

@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
+use App\Http\Controllers\backend\Marks\MarksController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
@@ -78,49 +79,49 @@ Route::middleware('auth')->group(function () {
         });
 
         //Student year routes
-        Route::name('student')->resource('/student/year', StudentYearController::class)->except('show', 'destroy');
-        Route::name('student.year.delete')->get('/student/year/delete/{id}', [StudentYearController::class, 'destroy']);
+        Route::name('student')->resource('/student/year', StudentYearController::class)->except('show', 'destroy'); // creation, edition et vue des années scolaire
+        Route::name('student.year.delete')->get('/student/year/delete/{id}', [StudentYearController::class, 'destroy']);// Suppression d'une année scolaire
 
         //Student group route
-        Route::name('student')->resource('/student/group', StudentGroupController::class)->except('show', 'destroy');
-        Route::name('student.group.delete')->get('/student/group/delete/{id}', [StudentGroupController::class, 'destroy']);
+        Route::name('student')->resource('/student/group', StudentGroupController::class)->except('show', 'destroy'); // Ajouter et edition groupe d'étudiant
+        Route::name('student.group.delete')->get('/student/group/delete/{id}', [StudentGroupController::class, 'destroy']); // Supprimer un groupe d'étudiant
 
         // Student shift route
-        Route::name('student')->resource('/student/shift', StudentShiftController::class)->except('show', 'destroy');
-        Route::name('student.shift.delete')->get('/student/shift/delete/{id}', [StudentShiftController::class, 'destroy']);
+        Route::name('student')->resource('/student/shift', StudentShiftController::class)->except('show', 'destroy'); // add, view and edit student shift
+        Route::name('student.shift.delete')->get('/student/shift/delete/{id}', [StudentShiftController::class, 'destroy']); // delete student shift
 
         //Fee Category route
-        Route::name('fee')->resource('/fee/category', FeeCategoryController::class)->except('show', 'destroy');
-        Route::name('fee.category.delete')->get('/fee/category/delete/{id}', [FeeCategoryController::class, 'destroy']);
+        Route::name('fee')->resource('/fee/category', FeeCategoryController::class)->except('show', 'destroy'); // view, add and edit feecategory
+        Route::name('fee.category.delete')->get('/fee/category/delete/{id}', [FeeCategoryController::class, 'destroy']); //delete fee category
 
         //Fee category Amount
-        Route::name('fee')->resource('/fee/amount', FeeAmountController::class)->except('destroy');
+        Route::name('fee')->resource('/fee/amount', FeeAmountController::class)->except('destroy'); // view, add ans edit fee amount
 
         //Exam type route
-        Route::name('exam')->resource('/exam/type', ExamTypeController::class)->except('show', 'destroy');
-        Route::name('exam.type.destroy')->get('/exam/type/delete/{id}', [ExamTypeController::class, 'destroy']);
+        Route::name('exam')->resource('/exam/type', ExamTypeController::class)->except('show', 'destroy'); // view, add and edit exam type
+        Route::name('exam.type.destroy')->get('/exam/type/delete/{id}', [ExamTypeController::class, 'destroy']); // delete exam type
 
         //School Subjet route
-        Route::name('school')->resource('/school/subject', SchoolSubjectController::class)->except('show', 'destroy');
-        Route::name('school.subject.destroy')->get('/school/subject/delete/{id}', [SchoolSubjectController::class, 'destroy']);
+        Route::name('school')->resource('/school/subject', SchoolSubjectController::class)->except('show', 'destroy'); // view, add and edit  school subject
+        Route::name('school.subject.destroy')->get('/school/subject/delete/{id}', [SchoolSubjectController::class, 'destroy']); // delete school subject
 
         // Assign subject route
-        Route::name('assign')->resource('/assign/subject', AssignSubjectController::class)->except('destroy');
+        Route::name('assign')->resource('/assign/subject', AssignSubjectController::class)->except('destroy');  // view, add and edit assign subject
 
         //Designation route
 
-        Route::name('designation')->resource('designation', DesignationController::class)->except('show', 'destroy');
-        Route::name('designation.designation.destroy')->get('/designation/delete/{id}', [DesignationController::class, 'destroy']);
+        Route::name('designation')->resource('designation', DesignationController::class)->except('show', 'destroy'); // view, add and edit designation
+        Route::name('designation.designation.destroy')->get('/designation/delete/{id}', [DesignationController::class, 'destroy']); //delete designation
     });
 
     // Student management
 
     Route::prefix('students')->group(function () {
         // Student Registration Route
-        Route::name('students')->resource('/registration', StudentRegistrationController::class);
+        Route::name('students')->resource('/registration', StudentRegistrationController::class);  // view, add and edit  student registration
         Route::name('students.year.class.wise')->get('/year/class/wise', [StudentRegistrationController::class, 'studentClassYearWise']);
-        Route::name('students.registration.promotion')->get('/registration/promotion/{id}', [StudentRegistrationController::class, 'studentRegPromotion']);
-        Route::name('promotion.student.registration')->post('/registration/promotion/{id}', [StudentRegistrationController::class, 'studentUpdatePromotion']);
+        Route::name('students.registration.promotion')->get('/registration/promotion/{id}', [StudentRegistrationController::class, 'studentRegPromotion']); // student promotion
+        Route::name('promotion.student.registration')->post('/registration/promotion/{id}', [StudentRegistrationController::class, 'studentUpdatePromotion']); // update promotion
 
         // Student Roll Generate Routes
         Route::get('roll/generate/view', [StudentRollController::class, 'index'])->name('roll.generate.index');
@@ -141,14 +142,20 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('employee')->group(function () {
-        Route::name('employee')->resource('/registration', EmployeeRegController::class)->except('destroy', 'show');
-        Route::name('employee.registration.detail')->get('/registration/detail/{id}', [EmployeeRegController::class, 'destroy']);
-        Route::name('employee')->resource('/salary', EmployeeSalaryController::class)->except('destroy', 'create', 'store');
-        Route::name('employee')->resource('/leave', EmployeeLeaveController::class)->except('show', 'destroy');
-        Route::name('employee.leave.destroy')->get('employee/leave/{id}', [EmployeeLeaveController::class, 'destroy']);
-        Route::name('employee')->resource('/attendance', EmployeeAttendanceController::class)->except('destroy', 'update');
-
+        Route::name('employee')->resource('/registration', EmployeeRegController::class)->except('destroy', 'show'); // view, add and edit employee registration
+        Route::name('employee.registration.detail')->get('/registration/detail/{id}', [EmployeeRegController::class, 'destroy']); // delete employee registration
+        Route::name('employee')->resource('/salary', EmployeeSalaryController::class)->except('destroy', 'create', 'store'); // view and edit employee salary
+        Route::name('employee')->resource('/leave', EmployeeLeaveController::class)->except('show', 'destroy'); // view, add and edit employee leave
+        Route::name('employee.leave.destroy')->get('employee/leave/{id}', [EmployeeLeaveController::class, 'destroy']); // delete employee leave
+        Route::name('employee')->resource('/attendance', EmployeeAttendanceController::class)->except('destroy', 'update'); // view, add and edit employee attendance
         Route::name('employee.monthly.salary')->get('monthly/salary', \App\Http\Livewire\Backend\Employee\MonthlySalaryComponent::class);
         Route::name('employee.monthly.salary.payslip')->get('monthly/salary/payslip/{id}', [MonthlySalaryController::class, 'payslip']);
+    });
+
+    Route::prefix('marks')->group(function () {
+        Route::name('marks')->resource('/entry', MarksController::class)->except('destroy', 'edit');
+        Route::name('student.marks.getstudents')->get('/getstudents', [\App\Http\Controllers\backend\DefaultController::class, 'getStudents']);
+        Route::name('marks.getsubject')->get('/getsubject', [\App\Http\Controllers\backend\DefaultController::class, 'getSubject']);
+        Route::name('student.edit.getstudents')->get('marks/getstudents/edit', [MarksController::class, 'marksEditGetStudents']);
     });
 });
