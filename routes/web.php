@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
+use App\Http\Controllers\backend\Marks\GradeController;
 use App\Http\Controllers\backend\Marks\MarksController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
@@ -153,9 +154,10 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('marks')->group(function () {
-        Route::name('marks')->resource('/entry', MarksController::class)->except('destroy', 'edit');
+        Route::name('marks')->resource('/entry', MarksController::class)->except('destroy', 'edit', 'show');
         Route::name('student.marks.getstudents')->get('/getstudents', [\App\Http\Controllers\backend\DefaultController::class, 'getStudents']);
         Route::name('marks.getsubject')->get('/getsubject', [\App\Http\Controllers\backend\DefaultController::class, 'getSubject']);
         Route::name('student.edit.getstudents')->get('marks/getstudents/edit', [MarksController::class, 'marksEditGetStudents']);
+        Route::name('marks')->resource('/grade', GradeController::class)->except('destroy', 'show');
     });
 });

@@ -60,7 +60,6 @@
                                                     <input type="text" value="{{ old('name') }}" name="name"
                                                         class="form-control" required />
                                                 </div>
-                                                {{-- <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div> --}}
                                             </div>
                                         </div>
                                     </div>

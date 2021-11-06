@@ -178,6 +178,11 @@ return [
                 "role" => "user",
                 "route" => "marks.entry.index",
             ],
+            [
+                "name" => "Marks Grade",
+                "role" => "user",
+                "route" => "marks.grade.index",
+            ],
         ],
     ],
 ];
