@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Account;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountOtherCost;
 use Illuminate\Http\Request;
 
 class OtherCostController extends Controller
@@ -14,7 +15,9 @@ class OtherCostController extends Controller
      */
     public function index()
     {
-        //
+        $account_other_costs = AccountOtherCost::orderBy('id','desc')->get();
+
+        return view('backend.account.other_cost.other_cost_view', compact('account_other_costs'));
     }
 
     /**
@@ -24,7 +27,7 @@ class OtherCostController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.account.other_cost.other_cost_add');
     }
 
     /**
@@ -35,7 +38,25 @@ class OtherCostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cost = new AccountOtherCost();
+        $cost->date = date('Y-m-d', strtotime($request->date));
+        $cost->amount = $request->amount;
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('upload/cost_images'),$filename);
+            $cost['image'] = $filename;
+        }
+        $cost->description = $request->description;
+        $cost->save();
+
+        $notification = array(
+            'message' => __('Other Cost Inserted Successfully'),
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('other.cost.index')->with($notification);
     }
 
     /**
@@ -57,7 +78,9 @@ class OtherCostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cost = AccountOtherCost::fidOrFail($id);
+
+        return view("backend.account.other_cost.other_cost_edit", compact('cost'));
     }
 
     /**
@@ -69,7 +92,26 @@ class OtherCostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cost = AccountOtherCost::findOrFail($id);
+        $cost->date = date('Y-m-d', strtotime($request->date));
+        $cost->amount = $request->amount;
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            @unlink(public_path('upload/cost_images/'.$cost->image));
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('upload/cost_images'),$filename);
+            $cost['image'] = $filename;
+        }
+        $cost->description = $request->description;
+        $cost->save();
+
+        $notification = array(
+            'message' => __('Other Cost Updated Successfully'),
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('other.cost.index')->with($notification);
     }
 
     /**

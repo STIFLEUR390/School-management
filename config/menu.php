@@ -200,11 +200,11 @@ return [
                 "role" => "user",
                 "route" => "account.salary",
             ],
-            /*[
-                "name" => "Marks Grade",
+            [
+                "name" => "Other Cost",
                 "role" => "user",
-                "route" => "marks.grade.index",
-            ],*/
+                "route" => "other.cost.index",
+            ],
         ],
     ],
 ];

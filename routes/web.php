@@ -173,6 +173,6 @@ Route::middleware('auth')->group(function () {
         Route::name('account.salary.store')->post('salary/store', \App\Http\Controllers\Backend\Account\StoreAccountSalaryController::class);
 
         // Other Cost route
-        Route::name('other')->resource('cost', OtherCostController::class);
+        Route::name('other')->resource('cost', OtherCostController::class)->except('show', 'destroy');
     });
 });
