@@ -26,7 +26,7 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form method="post" action="{{ route('marks.grade.update') }}">
+                                <form method="post" action="{{ route('marks.grade.update', $grade->id) }}">
                                     @csrf
                                     @method('PUT')
 

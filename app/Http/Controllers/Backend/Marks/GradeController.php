@@ -75,7 +75,7 @@ class GradeController extends Controller
      */
     public function edit($id)
     {
-        $grade = MarksGrade::findOfFail($id);
+        $grade = MarksGrade::findOrFail($id);
 
         return view('backend.marks.grade_marks_edit', compact('grade'));
     }

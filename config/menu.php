@@ -185,4 +185,26 @@ return [
             ],
         ],
     ],
+    "Accounts Management" => [
+        "role" => "user",
+        "icon" => "icon-Library",
+        "isHeader" => false,
+        "children" => [
+            [
+                "name" => "Student Fee",
+                "role" => "user",
+                "route" => "student.fee",
+            ],
+            [
+                "name" => "Employee Salary",
+                "role" => "user",
+                "route" => "account.salary",
+            ],
+            /*[
+                "name" => "Marks Grade",
+                "role" => "user",
+                "route" => "marks.grade.index",
+            ],*/
+        ],
+    ],
 ];

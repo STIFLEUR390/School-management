@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -8,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-    <title>{{ __(env('APP_NAME')) }} - Dashboard</title>
+    <title>{{ __(env("APP_NAME", "Easy School Management System")) }}</title>
 
     <!-- Vendors Style-->
     @stack('styles')
@@ -89,7 +90,28 @@
 <script src="{{ asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
 
 <script src="{{ asset('assets/vendor_components/datatable/datatables.min.js') }}"></script>
-<script src="{{ asset('backend/js/pages/data-table.js') }}"></script>
+{{--<script src="{{ asset('backend/js/pages/data-table.js') }}"></script>--}}
+@if(config("app.locale") == 'fr')
+    <script>
+        $(function () {
+            "use strict";
+
+            $('#example1').DataTable({
+                language: {
+                    url: '{{ asset('fr_fr.json') }}'
+                }
+            });
+        }); // End of use strict
+    </script>
+@else
+    <script>
+        $(function () {
+            "use strict";
+
+            $('#example1').DataTable();
+        }); // End of use strict
+    </script>
+@endif
 @stack('scripts')
 <!-- EduAdmin App -->
 <script src="{{ asset('backend/js/template.js') }}"></script>

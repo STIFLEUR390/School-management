@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\Account\OtherCostController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
@@ -159,5 +160,19 @@ Route::middleware('auth')->group(function () {
         Route::name('marks.getsubject')->get('/getsubject', [\App\Http\Controllers\backend\DefaultController::class, 'getSubject']);
         Route::name('student.edit.getstudents')->get('marks/getstudents/edit', [MarksController::class, 'marksEditGetStudents']);
         Route::name('marks')->resource('/grade', GradeController::class)->except('destroy', 'show');
+    });
+
+    Route::prefix('account')->group(function () {
+        // Student fee route
+        Route::name('student.fee')->get('student/fee', \App\Http\Livewire\Backend\Account\StudentFee\StudentFeeComponent::class);
+        Route::name('student.fee.create')->get('student/fee/create', \App\Http\Livewire\Backend\Account\StudentFee\AddStudentFeeComponent::class);
+        Route::name('student.fee.store')->post('student/fee/store', \App\Http\Controllers\Backend\Account\StoreStudentFeeController::class);
+        // Employee Salary Routes
+        Route::name('account.salary')->get('salary', \App\Http\Livewire\Backend\Account\AccountSalary\AccountSalaryComponent::class);
+        Route::name('account.salary.create')->get('salary/create', \App\Http\Livewire\Backend\Account\AccountSalary\AddAccountSalaryComponent::class);
+        Route::name('account.salary.store')->post('salary/store', \App\Http\Controllers\Backend\Account\StoreAccountSalaryController::class);
+
+        // Other Cost route
+        Route::name('other')->resource('cost', OtherCostController::class);
     });
 });
