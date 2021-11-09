@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend\Marks;
+namespace App\Http\Controllers\Backend\Marks;
 
 use App\Http\Controllers\Controller;
 use App\Models\ExamType;

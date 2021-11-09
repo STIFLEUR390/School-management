@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\backend\Marks\GradeController;
 use App\Http\Controllers\backend\Marks\MarksController;
+use App\Http\Controllers\Backend\Report\ProfiteController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
@@ -25,6 +26,7 @@ use App\Http\Controllers\Backend\Student\MonthlyFeeController;
 use App\Http\Controllers\Backend\student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRegistrationController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
+use App\Http\Livewire\Backend\Report\Profite\ProfiteComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -174,5 +176,10 @@ Route::middleware('auth')->group(function () {
 
         // Other Cost route
         Route::name('other')->resource('cost', OtherCostController::class)->except('show', 'destroy');
+    });
+
+    Route::prefix('reports')->group(function () {
+        Route::name('monthly.profit.index')->get('monthly/profit', ProfiteComponent::class);
+        Route::name('report.profit.pdf')->get('monthly/profit/pdf', ProfiteController::class);
     });
 });

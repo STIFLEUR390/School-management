@@ -207,4 +207,41 @@ return [
             ],
         ],
     ],
+    "Report Interface" => [
+        "role" => "user",
+        "icon" => "icon-Library",
+        "isHeader" => true,
+    ],
+    "Reports Management" => [
+        "role" => "user",
+        "icon" => "icon-Library",
+        "isHeader" => false,
+        "children" => [
+            [
+                "name" => "Monthly-Yearly Profite",
+                "role" => "user",
+                "route" => "monthly.profit.index",
+            ],
+            /* [
+                "name" => "MarkSheet Generate",
+                "role" => "user",
+                "route" => "marksheet.generate.view",
+            ],
+            [
+                "name" => "Attendance Report",
+                "role" => "user",
+                "route" => "attendance.report.view",
+            ],
+            [
+                "name" => "Student Result",
+                "role" => "user",
+                "route" => "student.result.view",
+            ],
+            [
+                "name" => "Student ID Card",
+                "role" => "user",
+                "route" => "student.idcard.view",
+            ], */
+        ],
+    ],
 ];

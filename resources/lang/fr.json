@@ -392,5 +392,12 @@
     "Select Subject": "Selectionner un sujet",
     "Student Marks Inserted Successfully": "Notes des élèves insérées avec succès",
     "Student Marks Updated Successfully": "Notes des élèves mises à jour avec succès",
-    "Student Grade Marks": "Notes des élèves"
+    "Student Grade Marks": "Notes des élèves",
+    "Other Cost List": "Autre liste de coûts",
+	"Add Other Cost": "Ajouter un autre coût",
+	"Description": "Description",
+	"Textarea text": "Textarea text",
+	"Other Cost Inserted Successfully": "Autre coût inséré avec succès",
+	"Other Cost Updated Successfully": "Autre coût mis à jour avec succès",
+	"Update": "Mettre à jour"
 }

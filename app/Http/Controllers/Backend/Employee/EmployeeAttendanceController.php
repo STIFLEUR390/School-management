@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend\employee;
+namespace App\Http\Controllers\Backend\Employee;
 
 use App\Http\Controllers\Controller;
 use App\Models\EmployeeAttendance;
