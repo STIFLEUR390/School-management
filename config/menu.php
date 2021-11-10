@@ -222,12 +222,12 @@ return [
                 "role" => "user",
                 "route" => "monthly.profit.index",
             ],
-            /* [
+            [
                 "name" => "MarkSheet Generate",
                 "role" => "user",
-                "route" => "marksheet.generate.view",
+                "route" => "marksheet.generate.index",
             ],
-            [
+            /* [
                 "name" => "Attendance Report",
                 "role" => "user",
                 "route" => "attendance.report.view",
