@@ -14,6 +14,7 @@ use App\Http\Controllers\backend\Marks\MarksController;
 use App\Http\Controllers\Backend\Report\AttenReportController;
 use App\Http\Controllers\Backend\Report\MarkSheetController;
 use App\Http\Controllers\Backend\Report\ProfiteController;
+use App\Http\Controllers\Backend\Report\ResultReportController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
@@ -189,7 +190,15 @@ Route::middleware('auth')->group(function () {
         Route::post('marksheet/generate/get', [MarkSheetController::class, 'get'])->name('report.marksheet.get');
 
         // attendance report Route
-        Route::get('attendance/report', [AttenReportController::class, 'index'])->name('attendance.generate.index');
-        Route::post('attendance/report/get', [AttenReportController::class, 'get'])->name('report.attendance.get');
+        Route::get('attendance', [AttenReportController::class, 'index'])->name('attendance.generate.index');
+        Route::post('attendance/get', [AttenReportController::class, 'get'])->name('report.attendance.get');
+
+        // Student Result Report Routes
+        Route::get('student/result', [ResultReportController::class, 'resultView'])->name('student.result.index');
+        Route::post('student/result/get', [ResultReportController::class, 'resultGet'])->name('report.student.result.get');
+
+        // Student ID Card Routes
+        Route::get('student/idcard', [ResultReportController::class, 'idCardIndex'])->name('student.idcard.index');
+        Route::post('student/idcard/get', [ResultReportController::class, 'idCardGet'])->name('report.student.idcard.get');
     });
 });

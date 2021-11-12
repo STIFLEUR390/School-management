@@ -165,7 +165,7 @@ return [
     ],
     "Marks Management" => [
         "role" => "user",
-        "icon" => "icon-Chart-pie",
+        "icon" => "icon-Library",
         "isHeader" => false,
         "children" => [
             [
@@ -187,7 +187,7 @@ return [
     ],
     "Accounts Management" => [
         "role" => "user",
-        "icon" => "icon-Library",
+        "icon" => "icon-Cart",
         "isHeader" => false,
         "children" => [
             [
@@ -209,12 +209,12 @@ return [
     ],
     "Report Interface" => [
         "role" => "user",
-        "icon" => "icon-Library",
+        "icon" => "icon-User",
         "isHeader" => true,
     ],
     "Reports Management" => [
         "role" => "user",
-        "icon" => "icon-Library",
+        "icon" => "icon-Chat-locked",
         "isHeader" => false,
         "children" => [
             [
@@ -232,16 +232,16 @@ return [
                 "role" => "user",
                 "route" => "attendance.generate.index",
             ],
-            /* [
+            [
                 "name" => "Student Result",
                 "role" => "user",
-                "route" => "student.result.view",
+                "route" => "student.result.index",
             ],
             [
                 "name" => "Student ID Card",
                 "role" => "user",
-                "route" => "student.idcard.view",
-            ], */
+                "route" => "student.idcard.index",
+            ],
         ],
     ],
 ];

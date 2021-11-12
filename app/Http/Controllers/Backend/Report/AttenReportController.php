@@ -43,7 +43,7 @@ class AttenReportController extends Controller
             return $pdf->stream('document.pdf');
         } else {
             $notification = array(
-                'message' => 'Sorry These Criteria Donse not match',
+                'message' => __('Sorry These Criteria Donse not match'),
                 'alert-type' => 'error'
             );
 
