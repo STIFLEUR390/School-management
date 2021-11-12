@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Report;
 
 use App\Http\Controllers\Controller;
+use App\Models\AssignStudent;
 use App\Models\ExamType;
 use App\Models\StudentClass;
 use App\Models\StudentMarks;
@@ -51,10 +52,32 @@ class ResultReportController extends Controller
 
     public function idCardIndex()
     {
+        $years = StudentYear::all();
+        $classes = StudentClass::all();
+
+        return view("backend.report.idcard.idcard_view", compact('classes', 'years'));
     }
 
     public function idCardGet(Request $request)
     {
-        dd($request->all());
+        $year_id = $request->year_id;
+        $class_id = $request->class_id;
+
+        $check_data = AssignStudent::where('year_id', $year_id)->where('class_id', $class_id)->first();
+
+        if ($check_data == true) {
+            $assign_students = AssignStudent::where('year_id', $year_id)->where('class_id', $class_id)->get();
+
+            $pdf = PDF::loadView('backend.report.idcard.idcard_pdf', compact('assign_students'));
+            $pdf->SetProtection(['copy', 'print'], '', 'pass');
+            return $pdf->stream('document.pdf');
+        } else {
+            $notification = array(
+                'message' => __('Sorry These Criteria Donse not match'),
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
+        }
     }
 }
