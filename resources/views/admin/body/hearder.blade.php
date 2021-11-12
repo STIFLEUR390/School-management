@@ -63,6 +63,24 @@
                         </div>
                     </div>
                 </li>
+                <!-- switch language -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="@lang('Language')">
+{{--                        <i class="flag-icon flag-icon-cm"><span class="path1"></span><span class="path2"></span></i>--}}
+                        <i class="flag-icon flag-icon-{{ Config::get('languages')[App::getLocale()]['flag-icon'] }}"><span class="path1"></span><span class="path2"></span></i>
+{{--                    {{ Config::get('languages')[App::getLocale()]['display'] }}--}}
+                    </a>
+                    <ul class="dropdown-menu animated flipInX">
+                        <li class="user-body">
+                            @foreach(Config::get('languages') as $lang => $language)
+                                @if($lang != App::getLocale())
+                                    <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"><i class="flag-icon flag-icon-{{ $language['flag-icon'] }} text-muted mr-2"></i>{{ $language['display'] }}</a>
+                                @endif
+                            @endforeach
+                        </li>
+                    </ul>
+                </li>
+
                 <!-- Notifications -->
                 <li class="dropdown notifications-menu">
                     <a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="Notifications">

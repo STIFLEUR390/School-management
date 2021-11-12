@@ -42,6 +42,8 @@ use App\Http\Livewire\Backend\Report\Profite\ProfiteComponent;
 |
 */
 
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+
 Route::group(['middleware' => 'prevent-back-history'], function () {
 
     Route::get('/', function () {
