@@ -227,12 +227,12 @@ return [
                 "role" => "user",
                 "route" => "marksheet.generate.index",
             ],
-            /* [
+            [
                 "name" => "Attendance Report",
                 "role" => "user",
-                "route" => "attendance.report.view",
+                "route" => "attendance.generate.index",
             ],
-            [
+            /* [
                 "name" => "Student Result",
                 "role" => "user",
                 "route" => "student.result.view",

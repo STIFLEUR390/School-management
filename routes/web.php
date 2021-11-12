@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\backend\Marks\GradeController;
 use App\Http\Controllers\backend\Marks\MarksController;
+use App\Http\Controllers\Backend\Report\AttenReportController;
 use App\Http\Controllers\Backend\Report\MarkSheetController;
 use App\Http\Controllers\Backend\Report\ProfiteController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
@@ -186,5 +187,9 @@ Route::middleware('auth')->group(function () {
         // MarkSheet Generate Routes
         Route::name('marksheet.generate.index')->get('marksheet/generate', [MarkSheetController::class, 'index']);
         Route::post('marksheet/generate/get', [MarkSheetController::class, 'get'])->name('report.marksheet.get');
+
+        // attendance report Route
+        Route::get('attendance/report', [AttenReportController::class, 'index'])->name('attendance.generate.index');
+        Route::post('attendance/report/get', [AttenReportController::class, 'get'])->name('report.attendance.get');
     });
 });
